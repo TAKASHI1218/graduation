@@ -20,6 +20,8 @@ gem 'fog-aws'
 gem 'dotenv-rails'
 gem "jquery-rails"
 
+gem 'unicorn'
+gem 'mini_racer', platforms: :ruby
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.3'
@@ -67,6 +69,21 @@ group :development, :test do
   gem 'database_cleaner'
   gem 'launchy'
   gem 'selenium-webdriver'
+
+  gem 'capistrano', '3.6.0'
+  gem 'capistrano-bundler'
+  gem 'capistrano-rails'
+  gem 'capistrano-rbenv'
+  gem 'capistrano3-unicorn'
+
+
+
+
+
+
+
+
+
 end
 
 group :development do
