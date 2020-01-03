@@ -1,6 +1,6 @@
 class SideMenusController < ApplicationController
   before_action :set_side_menu, only: [:show, :edit, :update, :destroy]
-  before_action :refuse_to_go_to, only: [:new, :edit]
+  before_action :refuse_to_go_to, only: [:new, :edit, :destroy]
 
 
 
@@ -52,6 +52,8 @@ class SideMenusController < ApplicationController
 
   def refuse_to_go_to
     if current_user == nil
+      redirect_to tops_path, notice: '権限がありません。'
+    elsif current_user.admin == false
       redirect_to tops_path, notice: '権限がありません。'
     end
   end

@@ -9,7 +9,8 @@
   </div>
 
   <% if current_user == nil %>
-  <% elsif %>
+  <% elsif current_user.admin == false %>
+  <% elsif current_user.admin == true%>
     <button type="button" class="btn btn-danger rounded-pill">
     <%= link_to '新しくお飲み物を登録する', new_drink_path %></button>
   <% end %>
@@ -34,7 +35,8 @@
               <td><%= drink.name %></td>
               <td><%= drink.price %></td>
               <% if current_user == nil %>
-              <% elsif %>
+              <% elsif current_user.admin == false %>
+              <% elsif current_user.admin == true%>
               <td>
                 <button type="button" class="btn btn-warning rounded-pill">
                 <%= link_to "編集", edit_drink_path(drink.id), data: { confirm: '本当に編集していいですか？' } %></button></td>
@@ -66,7 +68,8 @@
               <td><%= drink.name %></td>
               <td><%= drink.price %></td>
               <% if current_user == nil %>
-              <% elsif %>
+              <% elsif current_user.admin == false %>
+              <% elsif current_user.admin == true%>
               <td>
                 <button type="button" class="btn btn-warning rounded-pill">
                 <%= link_to "編集", edit_drink_path(drink.id), data: { confirm: '本当に編集していいですか？' } %></button></td>
@@ -106,7 +109,8 @@
            <td><%= drink.name %></td>
            <td><%= drink.price %></td>
               <% if current_user == nil %>
-              <% elsif %>
+              <% elsif current_user.admin == false %>
+              <% elsif current_user.admin == true%>
                 <td>
                   <button type="button" class="btn btn-warning rounded-pill">
                   <%= link_to "編集", edit_drink_path(drink.id), data: { confirm: '本当に編集していいですか？' } %></button></td>
@@ -140,7 +144,8 @@
           <td><%= drink.name %></td>
           <td><%= drink.price %></td>
              <% if current_user == nil %>
-             <% elsif %>
+             <% elsif current_user.admin == false %>
+             <% elsif current_user.admin == true%>
                <td>
                  <button type="button" class="btn btn-warning rounded-pill">
                  <%= link_to "編集", edit_drink_path(drink.id), data: { confirm: '本当に編集していいですか？' } %></button></td>

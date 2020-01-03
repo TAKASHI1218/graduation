@@ -12,7 +12,8 @@
   </div>
 
   <% if current_user == nil %>
-  <% elsif %>
+  <% elsif current_user.admin == false %>
+  <% elsif current_user.admin == true %>
     <button type="button" class="btn btn-danger rounded-pill">
     <%=link_to '新しく焼き鳥を登録する', new_food_path %></button>
   <% end %>
@@ -62,7 +63,8 @@
                   </div>
                 </div>
                 <% if current_user == nil %>
-                <% elsif %>
+                <% elsif current_user.admin == false %>
+                <% elsif current_user.admin == true %>
               <td>
                 <button type="button" class="btn btn-warning rounded-pill">
                 <%= link_to '編集', edit_food_path(food.id), data: { confirm: '本当に編集していいですか？' } %></button></td>
@@ -120,7 +122,8 @@
                   </div>
                 </div>
                 <% if current_user == nil %>
-                <% elsif %>
+                <% elsif current_user.admin == false %>
+                <% elsif current_user.admin == true %>
               <td>
                 <button type="button" class="btn btn-warning rounded-pill">
                 <%= link_to '編集', edit_food_path(food.id), data: { confirm: '本当に編集していいですか？' } %></button></td>
@@ -178,7 +181,8 @@
                     </div>
                   </div>
                 <% if current_user == nil %>
-                <% elsif  %>
+                <% elsif current_user.admin == false %>
+                <% elsif current_user.admin == true %>
               <td>
                 <button type="button" class="btn btn-warning rounded-pill">
                 <%= link_to '編集', edit_food_path(food.id), data: { confirm: '本当に編集していいですか？' } %></button></td>
@@ -236,7 +240,8 @@
                   </div>
                 </div>
                 <% if current_user == nil %>
-                <% elsif %>
+                <% elsif current_user.admin == false %>
+                <% elsif current_user.admin == true %>
               <td>
                 <button type="button" class="btn btn-warning rounded-pill">
                 <%= link_to '編集 ', edit_food_path(food.id), data: { confirm: '本当に編集していいですか？' } %></button></td>

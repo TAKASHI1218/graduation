@@ -66,7 +66,21 @@
             <%= link_to "日本酒", sakes_path %></button>
         <br>
         </div>
-      </div>
+        <br>
+  <p1>以下より新規登録、ログインしお気に入りの焼き鳥にいいねをしてくだい！</p1>
+
+ <div class="loginuser">
+   <% if user_signed_in? %>
+   <button type="button" class="btn btn-primary rounded-0">
+     <%= link_to "ログアウト", destroy_user_session_path, method: :delete %></button>
+   <% else %>
+   <button type="button" class="btn btn-primary rounded-0">
+    <%= link_to "ログイン", new_user_session_path %></button>
+   <button type="button" class="btn btn-primary rounded-0">
+    <%= link_to "新規登録", new_user_registration_path  %></button>
+   <% end %>
+  </div>
+</div>
 
 
 

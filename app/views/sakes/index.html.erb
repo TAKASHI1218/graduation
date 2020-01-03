@@ -9,7 +9,8 @@
       ワイングラスで600円～800円よりご提供させて頂いております。</p2>
   </div>
   <% if current_user == nil %>
-  <% elsif %>
+  <% elsif current_user.admin == false %>
+  <% elsif current_user.admin == true %>
     <button type="button" class="btn btn-danger rounded-pill">
     <%= link_to '新しく日本酒を登録する', new_sake_path %></button>
   <% end %>
@@ -66,7 +67,8 @@
                </td>
 
               <% if current_user == nil %>
-              <% elsif %>
+              <% elsif current_user.admin == false %>
+              <% elsif current_user.admin == true %>
               <td>
                 <button type="button" class="btn btn-warning rounded-pill">
                 <%= link_to "編集", edit_sake_path(sake.id), data: { confirm: '本当に編集していいですか？' } %></button></td>
@@ -88,7 +90,7 @@
           <thead>
             <tr>
               <th height="30"></th>
-              <th height="30"></th> 
+              <th height="30"></th>
 
             </tr>
           </thead>
@@ -128,7 +130,8 @@
                </td>
 
               <% if current_user == nil %>
-              <% elsif %>
+              <% elsif current_user.admin == false %>
+              <% elsif current_user.admin == true %>
               <td>
                 <button type="button" class="btn btn-warning rounded-pill">
                 <%= link_to "編集", edit_sake_path(sake.id), data: { confirm: '本当に編集していいですか？' } %></button></td>
@@ -197,7 +200,8 @@
 
            <td><%= sake.price %></td>
               <% if current_user == nil %>
-              <% elsif %>
+              <% elsif current_user.admin == false %>
+              <% elsif current_user.admin == true %>
                 <td>
                   <button type="button" class="btn btn-warning rounded-pill">
                   <%= link_to "編集", edit_sake_path(sake.id), data: { confirm: '本当に編集していいですか？' } %></button></td>
@@ -260,7 +264,8 @@
 
           <td><%= sake.price %></td>
              <% if current_user == nil %>
-             <% elsif %>
+             <% elsif current_user.admin == false %>
+             <% elsif current_user.admin == true %>
                <td>
                  <button type="button" class="btn btn-warning rounded-pill">
                  <%= link_to "編集", edit_sake_path(sake.id), data: { confirm: '本当に編集していいですか？' } %></button></td>
