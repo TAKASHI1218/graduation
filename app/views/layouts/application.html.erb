@@ -17,7 +17,10 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <header class="stickytop">
+  <header>
+
+
+
     <div class="header-logo-menu">
       <div id="nav-drawer">
           <input id="nav-input" type="checkbox" class="nav-unshown">
@@ -28,7 +31,9 @@
             <%= link_to "トップページ", tops_path %><br>
        <!-- <button type="button" class="btn btn-light rounded-pill"> -->
             <%= link_to "アクセス", maps_path %><br>
-        <br>
+
+            <%= link_to "お店のInstagram", "https://www.instagram.com/toriyuu_yakitori", :target=>["_blank"] %>
+            <br><br>
           <!-- <button type="button" class="btn btn-warning rounded-pill"> -->
             <%= link_to "焼き鳥", foods_path %><br>
           <!-- <button type="button" class="btn btn-warning rounded-pill"> -->
@@ -37,20 +42,12 @@
             <%= link_to "お飲み物", drinks_path %><br>
           <!-- <button type="button" class="btn btn-warning rounded-pill"> -->
             <%= link_to "日本酒", sakes_path %><br>
-
-
-
           </div>
-
-
-
-
-
-
-
       </div>
-      <div class="logo-erea"><h1>T o r i y u u</h1></div>
-      </div>  </header>
+    </div>
+
+     <div class="logo-erea"><p1>T o r i y u u</p1></div>
+  </header>
 
   <body>
 
