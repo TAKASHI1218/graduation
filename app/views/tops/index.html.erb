@@ -1,12 +1,13 @@
 <div class="toppbody">
 <div class="f-container">
 
-
-<p1>
+<br>
+<p1 class="topp1">
 江戸川区瑞江の外れにひっそりと店を構える
 炭火焼き鳥店</p1>
 <br>
-<p2>
+<br>
+<p2 class="topp2">
 当店で召し上がって頂きたいのは、<br>
 40種類以上の希少部位の中から日替わりで提供する部位を備長炭で丁寧に焼き上げた焼き鳥です。<br>
 鳥を1からさばき、質の良い部位を鮮度の良い状態で丁寧に仕込み、提供しております。<br>
@@ -14,7 +15,7 @@
 また、焼き鳥に合う店主が厳選した日本酒を多数取り揃えておりますので『焼き鳥×日本酒』をご堪能くださいませ。</p2>
 <br>
 <br>
-<p1>お店のインスタグラムはこちらから</p1>
+<!-- <p1>お店のインスタグラムはこちらから</p1>
  <button type="button" class="btn btn-info rounded-pill">
   <%= link_to "Instagram", "https://www.instagram.com/toriyuu_yakitori", :target=>["_blank"] %></button>
 <br>
@@ -44,11 +45,11 @@
 </div>
 
 <br>
-<br>
+<br> -->
 
-<p1>以下より各リンクをご覧ください。</p1>
+<!-- <p1>以下より各リンクをご覧ください。</p1> -->
 
-<div class="top-sub">
+<!-- <div class="top-sub">
         <button type="button" class="btn btn-light rounded-pill">
             <%= link_to "トップページ", tops_path %></button>
        <button type="button" class="btn btn-light rounded-pill">
@@ -63,18 +64,18 @@
           <button type="button" class="btn btn-warning rounded-pill">
             <%= link_to "日本酒", sakes_path %></button>
         <br>
-        </div>
+        </div> -->
         <br>
-  <p1>以下より新規登録、ログインしお気に入りの焼き鳥にいいねをしてくだい！</p1>
+  <p2 class="topp2">以下より新規登録、ログインしお気に入りの焼き鳥にいいねをしてくだい！</p2>
 
  <div class="loginuser">
    <% if user_signed_in? %>
-   <button type="button" class="btn btn-primary rounded-0">
+   <button class="loginbutton" >
      <%= link_to "ログアウト", destroy_user_session_path, method: :delete %></button>
    <% else %>
-   <button type="button" class="btn btn-primary rounded-0">
+   <button class="loginbutton" >
     <%= link_to "ログイン", new_user_session_path %></button>
-   <button type="button" class="btn btn-primary rounded-0">
+   <button class="loginbutton">
     <%= link_to "新規登録", new_user_registration_path  %></button>
    <% end %>
   </div>

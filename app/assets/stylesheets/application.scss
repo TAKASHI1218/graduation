@@ -18,11 +18,43 @@
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
+
 header {
   padding:5px;
   background: #ccc;
 
 }
+
+
+.topp1{
+  font-size: 30px;
+  background:
+       rgba(0, 0, 0, 0.1);
+}
+
+.topp2{
+  font-size: 20px;
+  background:
+       rgba(0, 0, 0, 0.1);
+}
+
+
+
+.loginbutton{
+  background-color: rgba(255, 255, 255, .2);
+    border-radius: 4px;
+    color: #fff;
+    box-shadow: 0 3px 3px rgba(0, 0, 0, .2), inset 0 1px 1px rgba(255, 255, 255, .7);
+    text-shadow: 0px 1px 0px rgba(0, 0, 0, .4);}
+
+  .loginbutton:hover {
+    background-color: rgba(255, 255, 255, .3);
+  }
+
+
+
+
+
 
 #nav-drawer {
   position: relative;
@@ -122,7 +154,7 @@ header {
   padding-bottom: 10px;
   font-size: 70px;
   color: white;
-  font-family: serif;
+  font-family: 'Permanent Marker', cursive;
 
 
 
@@ -167,25 +199,25 @@ color:orange;
 text-decoration:underline;
 }
 
-.sticky-top {
+.stickytop {
 
-  background:
-     repeating-radial-gradient(
-       circle at -1000% 0%,
-       rgba(116, 77, 48, 0.7),
-       #573216 7.5%,
-       rgba(116, 77, 48, 0.9) 10%
-     ),
-     repeating-radial-gradient(
-       circle at -1000% 0%,
-       #573216,
-       #573216 0.1%,
-       #744d30 0.4%,
-       #744d30 0.5%
-     );
+  // background:
+  //    repeating-radial-gradient(
+  //      circle at -1000% 0%,
+  //      rgba(116, 77, 48, 0.7),
+  //      #573216 7.5%,
+  //      rgba(116, 77, 48, 0.9) 10%
+  //    ),
+  //    repeating-radial-gradient(
+  //      circle at -1000% 0%,
+  //      #573216,
+  //      #573216 0.1%,
+  //      #744d30 0.4%,
+  //      #744d30 0.5%
+  //    );
 
-  color: black;
-   font-family: serif;
+  // color: black;
+  //  font-family: serif;
    // margin-top: auto;
    text-align: center;
 
