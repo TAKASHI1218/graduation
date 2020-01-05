@@ -5,8 +5,11 @@
     <%= analytics_init if Rails.env.production? %>
     <meta name="google-site-verification" content="kk6tFO9EXVc53Elkt6-Tupx5PQU5fgcDNb1OFQP2h2A" />
     <link href="https://fonts.googleapis.com/css?family=Permanent+Marker&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Sawarabi+Mincho&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Noto+Sans+JP" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Indie+Flower" rel="stylesheet">
 
-    <title>toriyu</title>
+    <title>toriyuu</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -32,7 +35,8 @@
        <!-- <button type="button" class="btn btn-light rounded-pill"> -->
             <%= link_to "アクセス", maps_path %><br>
 
-            <%= link_to "お店のInstagram", "https://www.instagram.com/toriyuu_yakitori", :target=>["_blank"] %>
+            <%= link_to "お店のInstagram", "https://www.instagram.com/toriyuu_yakitori", :target=>["_blank"] %><br>
+            <%= link_to "Toriyuu blog", blogs_path %>
             <br><br>
           <!-- <button type="button" class="btn btn-warning rounded-pill"> -->
             <%= link_to "焼き鳥", foods_path %><br>
