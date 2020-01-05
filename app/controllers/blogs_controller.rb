@@ -2,7 +2,7 @@ class BlogsController < ApplicationController
   before_action :set_blog, only: [:show, :edit, :update, :destroy]
 
 
-  PER = 4
+  PER = 10
 
   def index
     @blogs = Blog.all.order("created_at DESC").page(params[:page]).per(PER)
@@ -31,7 +31,7 @@ class BlogsController < ApplicationController
     @blog = Blog.create(blog_params)
     @blog.user_id = current_user.id
     if @blog.save
-      redirect_to blogs_path, notice:"業務連絡を作成しました。"
+      redirect_to blogs_path, notice:"投稿を作成しました。"
     else
       render :new
     end
@@ -44,8 +44,6 @@ class BlogsController < ApplicationController
   end
 
   def edit
-
-
     if current_user.id == @blog.user.id || current_user.admin == true
     elsif current_user == nil
       redirect_to tops_path, notice:"権限がありません。"
@@ -57,7 +55,7 @@ class BlogsController < ApplicationController
 
   def update
     if @blog.update(blog_params)
-      redirect_to blogs_path, notice:"業務連絡を編集しました。"
+      redirect_to blogs_path, notice:"投稿を編集しました。"
     else
       render :edit
     end
@@ -65,7 +63,7 @@ class BlogsController < ApplicationController
 
   def destroy
     @blog.destroy
-    redirect_to blogs_path, notice:"業務連絡を削除しました。"
+    redirect_to blogs_path, notice:"投稿を削除しました。"
   end
 
 

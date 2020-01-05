@@ -1,7 +1,7 @@
 ja:
   activerecord:
     models:
-      blog: "業務連絡"
+      blog: "投稿"
       user: "ユーザー"
       food: "焼き鳥"
       side_menu: "一品料理"
@@ -10,11 +10,11 @@ ja:
       comment: "コメント"
     attributes:
       blog:
-        title: "タイトル"
-        content: "内容"
-        picture: "写真"
-        visit_date: "完了予定期日"
-        status: "優先度"
+        title: "題名"
+        content: "本文"
+        picture: "お写真"
+        visit_date: "ご来店日"
+        status: "ご満足度"
       contact:
         name: "名前"
         email: "メールアドレス"

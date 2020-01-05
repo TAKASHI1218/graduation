@@ -12,37 +12,43 @@
   <% end %>
 
   <div class="blog_title">
-    <%= form.label :title %>
+    <%= form.label :title %><br>
     <%= form.text_area :title %>
   </div>
-
+  <br>
   <div class="blog_content">
-    <%= form.label :content %>
+    <%= form.label :content %><br>
     <%= form.text_area :content %>
   </div>
-
+  <br>
   <div class="blog_visit_date">
-    <%= form.label :visit_date %>
+    <%= form.label :visit_date %><br>
     <%= form.date_select :visit_date,  include_blank: true %>
   </div>
-
+  <br>
   <div class="blog_status">
-    <%= form.label :status %>
+    <%= form.label :status %><br>
     <%= form.select :status, Blog.statuses.keys.to_a, {} %>
 
   </div>
+  <br>
 
   <div class="blog_picture">
-    <%= form.label :picture %>
+    <%= form.label :picture %><br>
     <% if @blog.picture.url %>
       <%= image_tag @blog.picture.url ,:width => '400', :height => '400' %>
     <% end %>
-    <br>
+
     <%= form.file_field :picture %>
 
 
 
   </div>
+   <br>
 
-  <%= form.submit %>
+   <%= form.submit %>
+
+
 <% end %>
+<br>
+<br>

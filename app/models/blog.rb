@@ -17,7 +17,7 @@ class Blog < ApplicationRecord
   belongs_to :user
   has_many :comments, dependent: :destroy
   mount_uploader :picture, ImageUploader
-  enum status:{緊急: 0,とても重要: 1,重要: 2,ふつう: 3, いつでもよい: 4}, _suffix: true
+  enum status:{とても満足です！: 0,満足です！: 1,普通: 2,少し不満。。: 3, 不満です。。: 4}, _suffix: true
 
 
 

@@ -1,18 +1,26 @@
-<div class="blogshowbody">
+<div class="blognewbody">
   <div class="blogeachtitle">
 　<p1>詳細画面</p1>
   </div>
   <br>
-  <button type="button" class="btn btn-success rounded-pill">
-  <%= link_to '業務連絡一覧へ戻る', blogs_path %></button>
 
+  <p1 class="btn-vertical-border">
+  <%= link_to "▶ T o r i y u u - noticeboard", blogs_path %></p1>
+　<br>
+  <br>
 
   <div class="blog-text">
     <table>
-    <p><strong>タイトル</strong>：<%= @blog.title %></p>
-    <p><strong>内容</strong>：<%= @blog.content %></p>
-
-    <p><strong>写真</strong>：
+    <p><strong>題名</strong>
+      <br>
+    <%= @blog.title %></p>
+      <br>
+    <p><strong>本文</strong>
+      <br>
+    <%= @blog.content %></p>
+      <br>
+    <p><strong>写真</strong>
+      <br>
       <% if  @blog.picture.url %>
       <button type="button" class="btn btn-link" data-toggle="modal" data-target="#exampleModalCenter-<%= @blog.id %>">
       <%=  '🐓' %>
@@ -45,8 +53,8 @@
 
     <table class="table table-hover">
       <tr>
-        <th>完了予定日</th>
-        <th>優先度</th>
+        <th>ご来店日</th>
+        <th>ご満足度</th>
 
       </tr>
       <tr>
