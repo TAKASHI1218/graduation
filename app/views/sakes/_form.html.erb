@@ -3,7 +3,7 @@
   <% if @sake.errors.any? %>
     <div id="error_explanation">
       <h2><%= @sake.errors.count %>件のエラーがあります。</h2>
-      <ul>
+      <ul class="errormessage">
 
       <% @sake.errors.full_messages.each do |msg| %>
         <li><%=msg %></li>

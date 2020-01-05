@@ -8,8 +8,8 @@ class Blog < ApplicationRecord
   validates :status, presence: true
 
   def visitday_cannot_be_in_the_pastday
-    if visit_date.present? && visit_date < Date.today
-      errors.add(:visit_date, "過去の日は入力できません。")
+    if visit_date.present? && visit_date > Date.today
+      errors.add(:visit_date, "  ：未来の日は入力できません。")
     end
   end
 

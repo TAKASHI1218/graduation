@@ -3,7 +3,7 @@
   <% if @side_menu.errors.any? %>
     <div id="error_explanation">
       <h2><%= @side_menu.errors.count %>件のエラーがあります。</h2>
-      <ul>
+      <ul class="errormessage">
 
       <% @side_menu.errors.full_messages.each do |msg| %>
         <li><%=msg %></li>
