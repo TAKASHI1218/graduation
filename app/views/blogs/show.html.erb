@@ -3,7 +3,7 @@
 　<p1>本文＆コメント画面</p1>
   </div>
   <br>
-  
+
 
   <p1 class="btn-vertical-border">
   <%= link_to "▶ T o r i y u u - noticeboard", blogs_path %></p1>
@@ -78,8 +78,6 @@
   <% elsif current_user %>
   <%= render partial: 'comments/form', locals: { comment: @comment, blog: @blog } %>
   <% end %>
-
   </div>
-
 
 </div>

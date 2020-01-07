@@ -1,171 +1,149 @@
 <div class="drinkbody">
-<div class="container">
-  <div class="ordertype">
-    <p1>お飲み物</p1>
-  </div>
-  <div class="order-title" >
-      <p2>当店ではお酒にこだわる店主がこだわりのハイボールも仕入れております。
-      是非こちらもお楽しみください。</p2>
-  </div>
-
-  <% if current_user == nil %>
-  <% elsif current_user.admin == false %>
-  <% elsif current_user.admin == true%>
-    <button type="button" class="btn btn-danger rounded-pill">
-    <%= link_to '新しくお飲み物を登録する', new_drink_path %></button>
-  <% end %>
-
-  <br>
-
-
-  <div class="row">
-    <div class="col">
-      <div drinkkind0>
-        <table>
-          <thead>
-            <tr>　
-              <th height="100"><h2>［ドリンク］</h2></th>
-              <th height="100">お値段</th>
-            </tr>
-          </thead>
-          <tbody>
-            <% @drinks.each do |drink| %>
-            <% if drink.kind == 'ドリンク' %>
-            <tr>
-              <td><%= drink.name %></td>
-              <td><%= drink.price %></td>
-              <% if current_user == nil %>
-              <% elsif current_user.admin == false %>
-              <% elsif current_user.admin == true%>
-              <td>
-                <button type="button" class="btn btn-warning rounded-pill">
-                <%= link_to "編集", edit_drink_path(drink.id), data: { confirm: '本当に編集していいですか？' } %></button></td>
-              <td>
-                <button type="button" class="btn btn-secondary rounded-pill">
-                <%= link_to '削除', drink_path(drink.id), method: :delete, data: { confirm: '本当に削除していいですか？' } %></button></td>
-              <% end %>
-            </tr>
-            <% end %>
-            <% end %>
-          </tbody>
-        </table>
-      </div>
+  <div class="container">
+    <div class="ordertype">
+      <p1>お飲み物</p1>
     </div>
-
-    <div class="col">
-      <div drinkkind1>
-        <table>
-          <thead>
-            <tr>　
-              <th height="100"><h2>［サワー・お茶ハイ］</h2></th>
-              <th height="100">お値段</th>
-            </tr>
-          </thead>
-          <tbody>
-            <% @drinks.each do |drink| %>
-            <% if drink.kind == 'サワー、お茶ハイ' %>
-            <tr>
-              <td><%= drink.name %></td>
-              <td><%= drink.price %></td>
-              <% if current_user == nil %>
-              <% elsif current_user.admin == false %>
-              <% elsif current_user.admin == true%>
-              <td>
-                <button type="button" class="btn btn-warning rounded-pill">
-                <%= link_to "編集", edit_drink_path(drink.id), data: { confirm: '本当に編集していいですか？' } %></button></td>
-              <td>
-                <button type="button" class="btn btn-secondary rounded-pill">
-                <%= link_to '削除', drink_path(drink.id), method: :delete, data: { confirm: '本当に削除していいですか？' } %></button></td>
-              <% end %>
-            </tr>
-            <% end %>
-            <% end %>
-          </tbody>
-        </table>
-      </div>
+    <div class="order-title" >
+        <p2>当店ではお酒にこだわる店主がこだわりのハイボールも仕入れております。
+        是非こちらもお楽しみください。</p2>
     </div>
-
-
-
-
-
-    <div class="w-100"></div>
-
-
-
-    <div class="col">
-      <div drinkkind2>
-        <table>
-          <thead>
-           <tr>　
-             <th height="100"><h2>［ウイスキー・ハイボール］</h2></th>
-             <th height="100">お値段</th>
-           </tr>
-          </thead>
-        <tbody>
-          <% @drinks.each do |drink| %>
-            <% if drink.kind == 'ウイスキー、ハイボール' %>
-          <tr>
-           <td><%= drink.name %></td>
-           <td><%= drink.price %></td>
-              <% if current_user == nil %>
-              <% elsif current_user.admin == false %>
-              <% elsif current_user.admin == true%>
+    <% if current_user == nil %>
+    <% elsif current_user.admin == false %>
+    <% elsif current_user.admin == true%>
+      <button type="button" class="btn btn-danger rounded-pill">
+        <%= link_to '新しくお飲み物を登録する', new_drink_path %>
+      </button><br>
+    <% end %>
+    <div class="row">
+      <div class="col">
+        <div drinkkind0>
+          <table>
+            <thead>
+              <tr>　
+                <th height="100"><h2>［ドリンク］</h2></th>
+                <th height="100">お値段</th>
+              </tr>
+            </thead>
+            <tbody>
+              <% @drinks.each do |drink| %>
+              <% if drink.kind == 'ドリンク' %>
+              <tr>
+                <td><%= drink.name %></td>
+                <td><%= drink.price %></td>
+                <% if current_user == nil %>
+                <% elsif current_user.admin == false %>
+                <% elsif current_user.admin == true%>
                 <td>
                   <button type="button" class="btn btn-warning rounded-pill">
                   <%= link_to "編集", edit_drink_path(drink.id), data: { confirm: '本当に編集していいですか？' } %></button></td>
                 <td>
                   <button type="button" class="btn btn-secondary rounded-pill">
                   <%= link_to '削除', drink_path(drink.id), method: :delete, data: { confirm: '本当に削除していいですか？' } %></button></td>
+                <% end %>
+              </tr>
               <% end %>
-          </tr>
+              <% end %>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="col">
+        <div drinkkind1>
+          <table>
+            <thead>
+              <tr>　
+                <th height="100"><h2>［サワー・お茶ハイ］</h2></th>
+                <th height="100">お値段</th>
+              </tr>
+            </thead>
+            <tbody>
+              <% @drinks.each do |drink| %>
+              <% if drink.kind == 'サワー、お茶ハイ' %>
+              <tr>
+                <td><%= drink.name %></td>
+                <td><%= drink.price %></td>
+                <% if current_user == nil %>
+                <% elsif current_user.admin == false %>
+                <% elsif current_user.admin == true%>
+                <td>
+                  <button type="button" class="btn btn-warning rounded-pill">
+                  <%= link_to "編集", edit_drink_path(drink.id), data: { confirm: '本当に編集していいですか？' } %></button></td>
+                <td>
+                  <button type="button" class="btn btn-secondary rounded-pill">
+                  <%= link_to '削除', drink_path(drink.id), method: :delete, data: { confirm: '本当に削除していいですか？' } %></button></td>
+                <% end %>
+              </tr>
+              <% end %>
+              <% end %>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="w-100"></div>
+      <div class="col">
+        <div drinkkind2>
+          <table>
+            <thead>
+             <tr>　
+               <th height="100"><h2>［ウイスキー・ハイボール］</h2></th>
+               <th height="100">お値段</th>
+             </tr>
+            </thead>
+          <tbody>
+            <% @drinks.each do |drink| %>
+              <% if drink.kind == 'ウイスキー、ハイボール' %>
+            <tr>
+             <td><%= drink.name %></td>
+             <td><%= drink.price %></td>
+                <% if current_user == nil %>
+                <% elsif current_user.admin == false %>
+                <% elsif current_user.admin == true%>
+                  <td>
+                    <button type="button" class="btn btn-warning rounded-pill">
+                    <%= link_to "編集", edit_drink_path(drink.id), data: { confirm: '本当に編集していいですか？' } %></button></td>
+                  <td>
+                    <button type="button" class="btn btn-secondary rounded-pill">
+                    <%= link_to '削除', drink_path(drink.id), method: :delete, data: { confirm: '本当に削除していいですか？' } %></button></td>
+                <% end %>
+            </tr>
+              <% end %>
             <% end %>
-          <% end %>
-        </tbody>
-        </table>
+          </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="col">
+        <div drinkkind3>
+         <table>
+           <thead>
+            <tr>　
+              <th height="100"><h2>［プレミアム焼酎ハイボール］</h2></th>
+              <th height="100">お値段</th>
+            </tr>
+           </thead>
+         <tbody>
+           <% @drinks.each do |drink| %>
+             <% if drink.kind == 'プレミアム焼酎ハイボール' %>
+           <tr>
+            <td><%= drink.name %></td>
+            <td><%= drink.price %></td>
+               <% if current_user == nil %>
+               <% elsif current_user.admin == false %>
+               <% elsif current_user.admin == true%>
+                 <td>
+                   <button type="button" class="btn btn-warning rounded-pill">
+                   <%= link_to "編集", edit_drink_path(drink.id), data: { confirm: '本当に編集していいですか？' } %></button></td>
+                 <td>
+                   <button type="button" class="btn btn-secondary rounded-pill">
+                   <%= link_to '削除', drink_path(drink.id), method: :delete, data: { confirm: '本当に削除していいですか？' } %></button></td>
+               <% end %>
+           </tr>
+             <% end %>
+           <% end %>
+         </tbody>
+         </table>
+        </div>
       </div>
     </div>
-
-
-
-    <div class="col">
-     <div drinkkind3>
-       <table>
-         <thead>
-          <tr>　
-            <th height="100"><h2>［プレミアム焼酎ハイボール］</h2></th>
-            <th height="100">お値段</th>
-          </tr>
-         </thead>
-       <tbody>
-         <% @drinks.each do |drink| %>
-           <% if drink.kind == 'プレミアム焼酎ハイボール' %>
-         <tr>
-          <td><%= drink.name %></td>
-          <td><%= drink.price %></td>
-             <% if current_user == nil %>
-             <% elsif current_user.admin == false %>
-             <% elsif current_user.admin == true%>
-               <td>
-                 <button type="button" class="btn btn-warning rounded-pill">
-                 <%= link_to "編集", edit_drink_path(drink.id), data: { confirm: '本当に編集していいですか？' } %></button></td>
-               <td>
-                 <button type="button" class="btn btn-secondary rounded-pill">
-                 <%= link_to '削除', drink_path(drink.id), method: :delete, data: { confirm: '本当に削除していいですか？' } %></button></td>
-             <% end %>
-         </tr>
-           <% end %>
-         <% end %>
-       </tbody>
-       </table>
-     </div>
-    </div>
-
-    <br>
-
-
-
-<br>
-
-</div>
+  </div>
 </div>

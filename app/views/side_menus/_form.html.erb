@@ -1,44 +1,36 @@
-
 <%= form_with(model: @side_menu, local: true) do |form| %>
   <% if @side_menu.errors.any? %>
     <div id="error_explanation">
       <h2><%= @side_menu.errors.count %>件のエラーがあります。</h2>
       <ul class="errormessage">
-
       <% @side_menu.errors.full_messages.each do |msg| %>
         <li><%=msg %></li>
       <% end %>
       </ul>
     </div>
   <% end %>
-
-  <div class="side_menu_name">
-    <%= form.label :name %>
-    <%= form.text_field :name %>
-  </div>
-  <div class="side_menu_picture">
-    <%= form.label :picture%>
-    <%= form.file_field :picture %>
-    <% if @side_menu.picture.url %>
-      <%= image_tag @side_menu.picture.url,:width => '25%', :height => '25%'  %>
-    <% end %>
+    <div class="food_name">
+      <%= form.label :name %><br>
+      <%= form.text_area :name %><br>
+    </div>
+    <div class="food_picture">
+      <%= form.label :picture%><br>
+      <%= form.file_field :picture %><br>
+      <% if @side_menu.picture.url %>
+        <%= image_tag @side_menu.picture.url,:width => '25%', :height => '25%'  %>
+      <% end %><br>
+    </div>
+    <div class="food_price">
+      <%= form.label :price %><br>
+      <%= form.number_field(:price, in: 1..99999, step: 1.0) %><br>
+    </div>
     <br>
-
-  </div>
-  <div class="side_menu_price">
-    <%= form.label :price %>
-    <%= form.number_field(:price, in: 1..99999, step: 1.0) %>
-  </div>
-  <div class="side_menu_kind">
-    <%= form.label :kind %>
-    <%= form.select :kind, SideMenu.kinds.keys.to_a, {} %>
-  </div>
-
-
-
-
-
-  <%= form.submit %>
-<% end %>
-
-<%= link_to "サイドメニュー一覧画面に戻る", side_menus_path %>
+    <div class="food_kind">
+      <%= form.label :kind %><br>
+      <%= form.select :kind, SideMenu.kinds.keys.to_a, {} %><br>
+    </div>
+  <%= form.submit "登録する", class: 'submitbutton' %>
+<% end %><br>
+<button class="loginbutton">
+  <%= link_to "サイドメニュー一覧画面に戻る", side_menus_path %>
+</button>

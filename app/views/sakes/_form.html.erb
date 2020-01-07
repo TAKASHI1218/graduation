@@ -1,42 +1,35 @@
-
 <%= form_with(model: @sake, local: true) do |form| %>
   <% if @sake.errors.any? %>
     <div id="error_explanation">
       <h2><%= @sake.errors.count %>件のエラーがあります。</h2>
       <ul class="errormessage">
-
       <% @sake.errors.full_messages.each do |msg| %>
         <li><%=msg %></li>
       <% end %>
       </ul>
     </div>
   <% end %>
-
-  <div class="sake_name">
-    <%= form.label :name %>
-    <%= form.text_field :name %>
-  </div>
-  <div class="sake_picture">
-    <%= form.label :picture%>
-    <%= form.file_field :picture %>
-    <% if @sake.picture.url %>
-      <%= image_tag @sake.picture.url, :width => '25%', :height => '25%'  %>
-    <% end %>
-    <br>
-
-  </div>
-  <div class="sake_price">
-    <%= form.label :price %>
-    <%= form.number_field(:price, in: 1..99999, step: 1.0) %>
-  </div>
-
-  <div class="sake_kind">
-    <%= form.label :kind %>
-    <%= form.select :kind, Sake.kinds.keys.to_a, {} %>
-  </div>
-
-
-  <%= form.submit %>
-<% end %>
-
-<%= link_to "日本酒一覧画面に戻る", sakes_path %>
+    <div class="food_name">
+      <%= form.label :name %><br>
+      <%= form.text_field :name %><br>
+    </div>
+    <div class="food_picture">
+      <%= form.label :picture%><br>
+      <%= form.file_field :picture %><br>
+      <% if @sake.picture.url %>
+        <%= image_tag @sake.picture.url, :width => '25%', :height => '25%'  %>
+      <% end %><br>
+    </div>
+    <div class="food_price">
+      <%= form.label :price %><br>
+      <%= form.number_field(:price, in: 1..99999, step: 1.0) %><br>
+    </div>
+    <div class="food_kind">
+      <%= form.label :kind %><br>
+      <%= form.select :kind, Sake.kinds.keys.to_a, {} %><br>
+    </div>
+  <%= form.submit "登録する", class: 'submitbutton' %>
+<% end %><br>
+<button class="loginbutton">
+  <%= link_to "日本酒一覧画面に戻る", sakes_path %>
+</button>

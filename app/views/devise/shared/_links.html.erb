@@ -1,15 +1,27 @@
+
 <%- if controller_name != 'sessions' %>
-  <%= link_to "Log in", new_session_path(resource_name) %><br />
+<button class="loginbutton" >
+  <%= link_to "ログイン", new_session_path(resource_name) %><br />
 <% end %>
+</button>
+<br>
 
 <%- if devise_mapping.registerable? && controller_name != 'registrations' %>
-  <%= link_to "Sign up", new_registration_path(resource_name) %><br />
+<br>
+<button class="loginbutton" >
+  <%= link_to "新規登録", new_registration_path(resource_name) %><br />
 <% end %>
+</button>
 
+<br>
 <%- if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations' %>
-  <%= link_to "Forgot your password?", new_password_path(resource_name) %><br />
+<br>
+<button class="loginbutton" >
+  <%= link_to "パスワード確認", new_password_path(resource_name) %><br />
 <% end %>
-
+</button>
+<br>
+<br>
 <%- if devise_mapping.confirmable? && controller_name != 'confirmations' %>
   <%= link_to "Didn't receive confirmation instructions?", new_confirmation_path(resource_name) %><br />
 <% end %>
@@ -18,8 +30,14 @@
   <%= link_to "Didn't receive unlock instructions?", new_unlock_path(resource_name) %><br />
 <% end %>
 
-<%- if devise_mapping.omniauthable? %>
-  <%- resource_class.omniauth_providers.each do |provider| %>
-    <%= link_to "Sign in with #{OmniAuth::Utils.camelize(provider)}", omniauth_authorize_path(resource_name, provider) %><br />
-  <% end %>
-<% end %>
+
+
+
+
+
+     <i class="fab fa-google fa-lg">
+    <%= link_to "Googleアカウントでログイン",  user_google_omniauth_authorize_path %></i>
+    <br>
+    <br>
+    <i class="fab fa-facebook-square fa-lg">
+    <%= link_to "facebookアカウントでログイン",  user_facebook_omniauth_authorize_path %></i>

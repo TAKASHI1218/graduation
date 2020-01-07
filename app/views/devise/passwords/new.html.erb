@@ -1,19 +1,27 @@
- <div class="passwordbody">
+ <div class="loginbody">
+   <div class='blogtitle'>
+     <p1>T o r i y u u - notice board</p1>
+   </div>
+   <br>
+   <br>
 
-<h2>Forgot your password?</h2>
+  <p1 class="logintitle">パスワード確認</p1>
+   <br>
+   <br>
 
 <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
 
   <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+
+    <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "ご登録メールアドレス" %>
   </div>
+  <br>
 
   <div class="actions">
-    <%= f.submit "Send me reset password instructions" %>
+    <%= f.submit "パスワードリセットのメール送信", class:"submitbutton" %>
   </div>
 <% end %>
-
+<br>
 <%= render "devise/shared/links" %>
 </div>

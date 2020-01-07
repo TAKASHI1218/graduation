@@ -9,7 +9,7 @@ RSpec.describe 'Foods機能', type: :system do
         visit user_session_path
         fill_in 'メールアドレス', with: 'aa@gmail.com'
         fill_in 'パスワード', with: '61346134'
-        click_button 'Log in'
+        click_button 'ログイン'
 
         visit foods_path
         expect(page).to have_content '新しく焼き鳥を登録する'
@@ -29,7 +29,7 @@ RSpec.describe 'Foods機能', type: :system do
         visit user_session_path
         fill_in 'メールアドレス', with: 'aa@gmail.com'
         fill_in 'パスワード', with: '61346134'
-        click_button 'Log in'
+        click_button 'ログイン'
 
         visit foods_path
         expect(page).to have_content '新しく焼き鳥を登録する'
@@ -53,7 +53,7 @@ RSpec.describe 'Foods機能', type: :system do
         visit user_session_path
         fill_in 'メールアドレス', with: 'aa@gmail.com'
         fill_in 'パスワード', with: '61346134'
-        click_button 'Log in'
+        click_button 'ログイン'
 
         visit foods_path
         expect(page).to have_content '新しく焼き鳥を登録する'

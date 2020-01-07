@@ -3,27 +3,26 @@
    <div id = "error_explanation">
      <h2><%= @drink.errors.count %>件のエラーがあります。</h2>
      <ul class="errormessage">
-
       <% @drink.errors.full_messages.each do |msg| %>
         <li><%= msg %></li>
       <% end %>
       </ul>
     </div>
   <% end %>
-
-  <div class="drink_name">
-    <%= form.label :name %>
-    <%= form.text_field :name %>
-  </div>
-  <div class="drink_price">
-    <%= form.label :price %>
-    <%= form.number_field(:price, in: 1..99999, step: 1.0) %>
-  </div>
-  <div class="drink_kind">
-    <%= form.label :kind %>
-    <%= form.select :kind, Drink.kinds.keys.to_a, {} %>
-  </div>
-  <%= form.submit %>
-<% end %>
-
-<%= link_to "ドリンク一覧画面に戻る", drinks_path %>
+    <div class="food_name">
+      <%= form.label :name %><br>
+      <%= form.text_area :name %><br>
+    </div>
+    <div class="food_price">
+      <%= form.label :price %><br>
+      <%= form.number_field(:price, in: 1..99999, step: 1.0) %><br>
+    </div>
+    <div class="food_kind">
+      <%= form.label :kind %><br>
+      <%= form.select :kind, Drink.kinds.keys.to_a, {} %><br>
+    </div>
+  <%= form.submit "登録する", class: 'submitbutton' %>
+<% end %><br>
+<button class="loginbutton">
+  <%= link_to "ドリンク一覧画面に戻る", drinks_path %>
+</button>
