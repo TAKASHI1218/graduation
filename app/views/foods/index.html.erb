@@ -220,7 +220,7 @@
               <tr>
                 <td><%= food.name %></td>
                 <td>
-                  <% if food.price!=150 && food.price!=200 && food.price!=250 %>
+                  <% if food.picture && food.picture.url %>
                     <button type="button" class="btn btn-link" data-toggle="modal" data-target="#exampleModalCenter-<%= food.id %>">
                     <%=  '🐓' %>
                   <% else %>
