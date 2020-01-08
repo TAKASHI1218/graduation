@@ -1,21 +1,14 @@
-<ul>
+<ul class="commentfield">
   <% comments.each do |comment| %>
     <% if comment.id.present? %>
       <p><%= comment.content %></p>
-
       <p class="btn-sf-like"><%= comment.user.name %></p>
+      <% if current_user == nil %>
+      <% elsif current_user.id == comment.user_id || current_user.admin == true %>
+        <p1 class="btn-flat-vertical-border">
+        <%= link_to '↑ コメントを削除する', "/blogs/#{comment.blog_id}/comments/#{comment.id}", method: :delete, remote: true %>
+      <% end %>
+      </p1>
     <% end %>
-    <% if current_user == nil %>
-    <% elsif current_user.id == comment.user_id || current_user.id == current_user.admin %>
-
-
-
-  <p1 class="btn-flat-vertical-border">
-    <%= link_to '↑ コメントを削除する', "/blogs/#{comment.blog_id}/comments/#{comment.id}", method: :delete, remote: true, data: {"turbolinks" => false} %>
-  </p1>
-    <% end %>
-
   <% end %>
-
-
 </ul>

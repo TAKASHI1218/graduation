@@ -66,7 +66,7 @@ RSpec.describe 'drinks機能', type: :system do
         click_button '編集'
         page.driver.browser.switch_to.alert.accept
         fill_in '名前', with: 'サワー'
-        click_button '更新する'
+        click_button '登録する'
         expect(page).to have_content 'サワー'
         expect(page).not_to have_content 'ビール'
       end

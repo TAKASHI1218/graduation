@@ -7,9 +7,9 @@ class SakesController < ApplicationController
   end
 
   def new
-      @sake = Sake.new
+    @sake = Sake.new
   end
-
+  
   def create
     @sake = Sake.create(sake_params)
     if @sake.save

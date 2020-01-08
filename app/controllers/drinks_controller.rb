@@ -10,9 +10,9 @@ class DrinksController < ApplicationController
   end
 
   def new
-      @drink = Drink.new
+    @drink = Drink.new
   end
-
+  
   def create
     @drink = Drink.create(drink_params)
     if @drink.save
@@ -26,9 +26,9 @@ class DrinksController < ApplicationController
   end
 
   def edit
-      # if user_signed_in?
-      # else redirect_to tops_path, notice:"権限がありません"
-      # end
+    # if user_signed_in?
+    # else redirect_to tops_path, notice:"権限がありません"
+    # end
   end
 
   def update

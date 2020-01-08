@@ -1,31 +1,31 @@
 <%= form_with(model: @food, local: true) do |form| %>
-  <% if @food.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= @food.errors.count %>件のエラーがあります。</h2>
-      <ul class="errormessage">
+<% if @food.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= @food.errors.count %>件のエラーがあります。</h2>
+    <ul class="errormessage">
       <% @food.errors.full_messages.each do |msg| %>
         <li><%=msg %></li>
       <% end %>
-      </ul>
-    </div>
-  <% end %>
-    <div class="food_name">
-      <%= form.label :name %><br>
-      <%= form.text_area :name %><br>
-    </div>　
-    <div class="food_picture">
-      <%= form.label :picture%><br>
-      <%= form.file_field :picture %><br>
-      <% if @food.picture.url %>
-        <%= image_tag @food.picture.url,:width => '25%', :height => '25%'  %>
-      <% end %><br>
-    </div>
-    <div class="food_price">
-      <%= form.label :price %><br>
-      <%= form.number_field(:price, in: 1..99999, step: 1.0) %><br>
-    </div>
-  <%= form.submit "登録する", class: 'submitbutton' %>
+    </ul>
+  </div>
+<% end %>
+<div class="food_name">
+  <%= form.label :name %><br>
+  <%= form.text_area :name %><br>
+</div>
+<div class="food_picture">
+  <%= form.label :picture%><br>
+  <%= form.file_field :picture %><br>
+  <% if @food.picture.url %>
+    <%= image_tag @food.picture.url,:width => '25%', :height => '25%' %>
+  <% end %><br>
+</div>
+<div class="food_price">
+  <%= form.label :price %><br>
+  <%= form.number_field(:price, in: 1..99999, step: 1.0) %><br>
+</div>
+<%= form.submit "登録する", class: 'submitbutton' %>
 <% end %><br>
 <button class="loginbutton">
-  <%= link_to "焼き鳥一覧画面に戻る", foods_path %>
+<%= link_to "焼き鳥一覧画面に戻る", foods_path %>
 </button>

@@ -1,83 +1,66 @@
 <div class="blognewbody">
   <div class="blogeachtitle">
-　<p1>本文＆コメント画面</p1>
+    <p1>本文＆コメント画面</p1><br>
   </div>
-  <br>
-
-
   <p1 class="btn-vertical-border">
-  <%= link_to "▶ T o r i y u u - noticeboard", blogs_path %></p1>
-　<br>
-  <br>
-
+    <%= link_to "▶ T o r i y u u - noticeboard", blogs_path %></p1><br>
   <div class="blog-text">
     <table>
-    <p><strong>題名</strong>
-      <br>
-    <%= @blog.title %></p>
-      <br>
-    <p><strong>本文</strong>
-      <br>
-    <%= @blog.content %></p>
-      <br>
-    <p><strong>写真</strong>
-      <br>
-      <% if  @blog.picture.url %>
-      <button type="button" class="btn btn-link" data-toggle="modal" data-target="#exampleModalCenter-<%= @blog.id %>">
-      <%=  '🐓' %>
-    <% else %>
-      <%= '写真はありません'%>
-    <% end %>
-      </button>
-    <div class="modal fade" id="exampleModalCenter-<%= @blog.id %>" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle-<%= @blog.id %>" aria-hidden="true">
-      <div class="modal-dialog modal-dialog-centered" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-              <button type="button" class="close" data-dismiss="modal" aria-label="閉じる">
-                <span aria-hidden="true">&times;</span>
-              </button>
-          </div>
-            <div class="modal-body">
-              <div class="modalpicture">
-                <p>
-                  <% if  @blog.picture.url %>
-                  <%= image_tag @blog.picture.url ,:width => '100%', :height => '100%' %></p>
-                  <% elsif @blog.picture.url == nil %>
-                  <% end %>
+      <p>
+        <strong>題名</strong><br>
+        <%= @blog.title %></p><br>
+      <p>
+        <strong>本文</strong><br>
+        <%= @blog.content %></p><br>
+      <p>
+        <strong>写真</strong><br>
+        <% if  @blog.picture.url %>
+        <button type="button" class="btn btn-link" data-toggle="modal" data-target="#exampleModalCenter-<%= @blog.id %>">
+          <%= '🐓' %>
+        <% else %>
+          <%= '写真はありません'%>
+        <% end %>
+        </button>
+        <div class="modal fade" id="exampleModalCenter-<%= @blog.id %>" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle-<%= @blog.id %>" aria-hidden="true">
+          <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="閉じる">
+                  <span aria-hidden="true">&times;</span>
+                </button>
               </div>
+              <div class="modal-body">
+                <div class="modalpicture">
+                  <p>
+                    <% if  @blog.picture.url %>
+                      <%= image_tag @blog.picture.url ,:width => '100%', :height => '100%' %></p>
+                    <% elsif @blog.picture.url == nil %>
+                    <% end %>
+                </div>
+              </div>
+              <div class="modal-footer"></div>
             </div>
-          <div class="modal-footer">
           </div>
         </div>
-      </div>
-    </div>
-
     <table class="table table-hover">
       <tr>
         <th>ご来店日</th>
         <th>ご満足度</th>
-
       </tr>
       <tr>
         <td><%= @blog.visit_date %></td>
         <td><%= @blog.status %></td>
-
       </tr>
     </table>
   </div>
   <div class="jumbotron jumbotron-fluid">
-  <p1 class="comment_board">コメント一覧</p1>
-  <br>
-  <br>
-
-
-  <div id="comments_area">
-    <%= render partial: 'comments/index', locals: { comments: @comments, blog: @blog } %>
+    <p1 class="comment_board">コメント一覧</p1><br>
+    <div id="comments_area">
+      <%= render partial: 'comments/index', locals: { comments: @comments, blog: @blog } %>
+    </div>
+    <% if current_user == nil %>
+    <% elsif current_user %>
+      <%= render partial: 'comments/form', locals: { comment: @comment, blog: @blog } %>
+    <% end %>
   </div>
-  <% if current_user == nil %>
-  <% elsif current_user %>
-  <%= render partial: 'comments/form', locals: { comment: @comment, blog: @blog } %>
-  <% end %>
-  </div>
-
 </div>

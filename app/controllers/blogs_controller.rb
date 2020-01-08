@@ -66,7 +66,7 @@ class BlogsController < ApplicationController
     redirect_to blogs_path, notice:"投稿を削除しました。"
   end
 
-
+  
   private
 
   def set_blog

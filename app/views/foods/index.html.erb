@@ -6,8 +6,8 @@
     <div class="order-title" >
         <p2>40種類以上の希少部位の中から日替わりで提供する部位を備長炭で丁寧に焼き上げた焼き鳥です。
               鳥を一からさばき、質の良い部位を鮮度の良い状態で丁寧に仕込み、提供しております。
-              極上の塩、秘伝のタレで是非お召し上がりください。
-        </p2>
+              極上の塩、秘伝のタレで是非お召し上がりください。</p2><br>
+        <p4 class="torimark">※🐓をクリックすると写真が表示されます。(一部取り揃えております。)</p4>
     </div>
     <% if current_user == nil %>
     <% elsif current_user.admin == false %>
@@ -17,236 +17,258 @@
       </button><br>
     <% end %>
     <div class="row">
-        <div class="col">
-          <div food150>
-            <table>
-              <thead>
-                <tr>
-                  <th colspan="2" height="100">[150円]</th>
-                </tr>
-              </thead>
-              <tbody>
-                <% @foods.each do |food| %>
-                  <% if food.price == 150 %>
-                <tr>
-                  <td><%= food.name %></td>
-                  <td>
-                    <% if food.picture && food.picture.url %>
-                      <button type="button" class="btn btn-link" data-toggle="modal" data-target="#exampleModalCenter-<%= food.id %>">
-                      <%=  '🐓' %>
-                    <% else %>
-                      <%= '　'%>
-                    <% end %>
-                      </button>
-                    <div class="modal fade" id="exampleModalCenter-<%= food.id %>" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle-<%= food.id %>" aria-hidden="true">
-                      <div class="modal-dialog modal-dialog-centered" role="document">
-                        <div class="modal-content">
-                          <div class="modal-header">
-                            <p5 class="modal-title" id="exampleModalCenterTitle-<%= food.id %>"><%= food.name %></p5>
-                              <button type="button" class="close" data-dismiss="modal" aria-label="閉じる">
-                                <span aria-hidden="true">&times;</span>
-                              </button>
-                          </div>
-                            <div class="modal-body">
-                              <div class="modalpicture">
-                                <p><%= image_tag "#{food.picture.url}",:width => '50%', :height => '50%'  %></p>
-                              </div>
+      <div class="col">
+        <div class="food_kind">
+          <table>
+            <thead>
+              <tr>
+                <th height="100", width="300">[150円]</th>
+              </tr>
+            </thead>
+            <tbody>
+              <% @foods.each do |food| %>
+                <% if food.price == 150 %>
+              <tr>
+                <td><%= food.name %></td>
+                <td>
+                  <% if food.picture && food.picture.url %>
+                    <button type="button" class="btn btn-link" data-toggle="modal" data-target="#exampleModalCenter-<%= food.id %>">
+                    <%=  '🐓' %>
+                  <% else %>
+                    <%= '　'%>
+                  <% end %>
+                    </button>
+                  <div class="modal fade" id="exampleModalCenter-<%= food.id %>" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle-<%= food.id %>" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered" role="document">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <p5 class="modal-title" id="exampleModalCenterTitle-<%= food.id %>"><%= food.name %></p5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="閉じる">
+                              <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                          <div class="modal-body">
+                            <div class="modalpicture">
+                              <p><%= image_tag "#{food.picture.url}",:width => '50%', :height => '50%'  %></p>
                             </div>
-                          <div class="modal-footer">
-                            <h5><%= food.price %>円</h5>
                           </div>
+                        <div class="modal-footer">
+                          <h5><%= food.price %>円</h5>
                         </div>
                       </div>
                     </div>
-                    <% if current_user == nil %>
-                    <% elsif current_user.admin == false %>
-                    <% elsif current_user.admin == true %>
-                  <td>
-                    <button type="button" class="btn btn-warning rounded-pill">
-                    <%= link_to '編集', edit_food_path(food.id), data: { confirm: '本当に編集していいですか？' } %></button></td>
-                  <td>
-                    <button type="button" class="btn btn-secondary rounded-pill">
-                    <%= link_to '削除', food_path(food.id), method: :delete, data: { confirm: '本当に削除していいですか？' } %></button></td>
-                    <% end %>
-                </tr>
-                 <% end %>
+                  </div>
+                </td>
+                  <% if current_user == nil %>
+                  <% elsif current_user.admin == false %>
+                  <% elsif current_user.admin == true %>
+                <td>
+                  <button type="button" class="btn btn-warning rounded-pill">
+                  <%= link_to '編集', edit_food_path(food.id), data: { confirm: '本当に編集していいですか？' } %>
+                  </button>
+                </td>
+                <td>
+                  <button type="button" class="btn btn-secondary rounded-pill">
+                  <%= link_to '削除', food_path(food.id), method: :delete, data: { confirm: '本当に削除していいですか？' } %>
+                  </button>
+                </td>
                 <% end %>
-              </tbody>
-            </table>
-          </div>
+              </tr>
+              <% end %>
+              <% end %>
+            </tbody>
+          </table>
         </div>
-        <div class="col">
-          <div food200>
-            <table>
-              <thead>
-                <tr>
-                  <th colspan="2" height="100">[200円]</th>
-                </tr>
-              </thead>
-              <tbody>
-                <% @foods.each do |food| %>
-                  <% if food.price == 200 %>
-                <tr>
-                  <td><%= food.name %></td>
-                  <td>
-                    <% if food.picture && food.picture.url %>
-                      <button type="button" class="btn btn-link" data-toggle="modal" data-target="#exampleModalCenter-<%= food.id %>">
-                      <%=  '🐓' %>
-                    <% else %>
-                      <%= '　'%>
-                    <% end %>
-                      </button>
-                    <div class="modal fade" id="exampleModalCenter-<%= food.id %>" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle-<%= food.id %>" aria-hidden="true">
-                      <div class="modal-dialog modal-dialog-centered" role="document">
-                        <div class="modal-content">
-                          <div class="modal-header">
-                            <p5 class="modal-title" id="exampleModalCenterTitle-<%= food.id %>"><%= food.name %></p5>
-                              <button type="button" class="close" data-dismiss="modal" aria-label="閉じる">
-                                <span aria-hidden="true">&times;</span>
-                              </button>
-                          </div>
-                            <div class="modal-body">
-                              <div class="modalpicture">
-                                <p><%= image_tag "#{food.picture.url}",:width => '50%', :height => '50%'  %></p>
-                              </div>
+      </div>
+      <div class="col">
+        <div class="food_kind">
+          <table>
+            <thead>
+              <tr>
+                <th height="100", width="300">[200円]</th>
+              </tr>
+            </thead>
+            <tbody>
+              <% @foods.each do |food| %>
+                <% if food.price == 200 %>
+              <tr>
+                <td><%= food.name %></td>
+                <td>
+                  <% if food.picture && food.picture.url %>
+                    <button type="button" class="btn btn-link" data-toggle="modal" data-target="#exampleModalCenter-<%= food.id %>">
+                    <%=  '🐓' %>
+                  <% else %>
+                    <%= '　'%>
+                  <% end %>
+                    </button>
+                  <div class="modal fade" id="exampleModalCenter-<%= food.id %>" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle-<%= food.id %>" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered" role="document">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <p5 class="modal-title" id="exampleModalCenterTitle-<%= food.id %>"><%= food.name %></p5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="閉じる">
+                              <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                          <div class="modal-body">
+                            <div class="modalpicture">
+                              <p><%= image_tag "#{food.picture.url}",:width => '50%', :height => '50%'  %></p>
                             </div>
-                          <div class="modal-footer">
-                            <h5><%= food.price %>円</h5>
                           </div>
+                        <div class="modal-footer">
+                          <h5><%= food.price %>円</h5>
                         </div>
                       </div>
                     </div>
-                    <% if current_user == nil %>
-                    <% elsif current_user.admin == false %>
-                    <% elsif current_user.admin == true %>
-                  <td>
-                    <button type="button" class="btn btn-warning rounded-pill">
-                    <%= link_to '編集', edit_food_path(food.id), data: { confirm: '本当に編集していいですか？' } %></button></td>
-                  <td>
-                    <button type="button" class="btn btn-secondary rounded-pill">
-                    <%= link_to '削除', food_path(food.id), method: :delete, data: { confirm: '本当に削除していいですか？' } %></button></td>
-                    <% end %>
-                </tr>
-                 <% end %>
+                  </div>
+                </td>
+                  <% if current_user == nil %>
+                  <% elsif current_user.admin == false %>
+                  <% elsif current_user.admin == true %>
+                <td>
+                  <button type="button" class="btn btn-warning rounded-pill">
+                  <%= link_to '編集', edit_food_path(food.id), data: { confirm: '本当に編集していいですか？' } %>
+                  </button>
+                </td>
+                <td>
+                  <button type="button" class="btn btn-secondary rounded-pill">
+                  <%= link_to '削除', food_path(food.id), method: :delete, data: { confirm: '本当に削除していいですか？' } %>
+                  </button>
+                </td>
                 <% end %>
-              </tbody>
-            </table>
-          </div>
+              </tr>
+              <% end %>
+              <% end %>
+            </tbody>
+          </table>
         </div>
-        <div class="col">
-          <div food250>
-            <table>
-              <thead>
-                <tr>
-                  <th colspan="2" height="100">[250円]</th>
-                </tr>
-              </thead>
-              <tbody>
-                <% @foods.each do |food| %>
-                  <% if food.price == 250 %>
-                <tr>
-                  <td><%= food.name %></td>
-                  <td>
-                    <% if food.picture && food.picture.url %>
-                      <button type="button" class="btn btn-link" data-toggle="modal" data-target="#exampleModalCenter-<%= food.id %>">
-                      <%=  '🐓' %>
-                    <% else %>
-                      <%= '　'%>
-                    <% end %>
-                      </button>
-                      <div class="modal fade" id="exampleModalCenter-<%= food.id %>" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle-<%= food.id %>" aria-hidden="true">
-                        <div class="modal-dialog modal-dialog-centered" role="document">
-                          <div class="modal-content">
-                            <div class="modal-header">
-                              <p5 class="modal-title" id="exampleModalCenterTitle-<%= food.id %>"><%= food.name %></p5>
-                                <button type="button" class="close" data-dismiss="modal" aria-label="閉じる">
-                                  <span aria-hidden="true">&times;</span>
-                                </button>
-                            </div>
-                              <div class="modal-body">
-                                <div class="modalpicture">
-                                  <p><%= image_tag "#{food.picture.url}",:width => '50%', :height => '50%'  %></p>
-                                </div>
-                              </div>
-                            <div class="modal-footer">
-                              <h5><%= food.price %>円</h5>
+      </div>
+      <div class="col">
+        <div class="food_kind">
+          <table>
+            <thead>
+              <tr>
+                <th height="100", width="300">[250円]</th>
+              </tr>
+            </thead>
+            <tbody>
+              <% @foods.each do |food| %>
+                <% if food.price == 250 %>
+              <tr>
+                <td><%= food.name %></td>
+                <td>
+                  <% if food.picture && food.picture.url %>
+                    <button type="button" class="btn btn-link" data-toggle="modal" data-target="#exampleModalCenter-<%= food.id %>">
+                    <%=  '🐓' %>
+                  <% else %>
+                    <%= '　'%>
+                  <% end %>
+                    </button>
+                  <div class="modal fade" id="exampleModalCenter-<%= food.id %>" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle-<%= food.id %>" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered" role="document">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <p5 class="modal-title" id="exampleModalCenterTitle-<%= food.id %>"><%= food.name %></p5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="閉じる">
+                              <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                          <div class="modal-body">
+                            <div class="modalpicture">
+                              <p><%= image_tag "#{food.picture.url}",:width => '50%', :height => '50%'  %></p>
                             </div>
                           </div>
+                        <div class="modal-footer">
+                          <h5><%= food.price %>円</h5>
                         </div>
                       </div>
-                    <% if current_user == nil %>
-                    <% elsif current_user.admin == false %>
-                    <% elsif current_user.admin == true %>
-                  <td>
-                    <button type="button" class="btn btn-warning rounded-pill">
-                    <%= link_to '編集', edit_food_path(food.id), data: { confirm: '本当に編集していいですか？' } %></button></td>
-                  <td>
-                    <button type="button" class="btn btn-secondary rounded-pill">
-                    <%= link_to '削除', food_path(food.id), method: :delete, data: { confirm: '本当に削除していいですか？' } %></button></td>
-                    <% end %>
-                </tr>
-                 <% end %>
+                    </div>
+                  </div>
+                </td>
+                  <% if current_user == nil %>
+                  <% elsif current_user.admin == false %>
+                  <% elsif current_user.admin == true %>
+                <td>
+                  <button type="button" class="btn btn-warning rounded-pill">
+                  <%= link_to '編集', edit_food_path(food.id), data: { confirm: '本当に編集していいですか？' } %>
+                  </button>
+                </td>
+                <td>
+                  <button type="button" class="btn btn-secondary rounded-pill">
+                  <%= link_to '削除', food_path(food.id), method: :delete, data: { confirm: '本当に削除していいですか？' } %>
+                  </button>
+                </td>
                 <% end %>
-              </tbody>
-            </table>
-          </div>
+              </tr>
+              <% end %>
+              <% end %>
+            </tbody>
+          </table>
         </div>
-        <div class="col">
-          <div food750>
-            <table>
-              <thead>
-                <tr>
-                  <th colspan="2" height="100">[コース]</th>
-                </tr>
-              </thead>
-              <tbody>
-                <% @foods.each do |food| %>
+      </div>
+      <div class="col">
+        <div class="food_kind">
+          <table>
+            <thead>
+              <tr>
+                <th height="100", width="300">[コース]</th>
+              </tr>
+            </thead>
+            <tbody>
+              <% @foods.each do |food| %>
+                <% if food.price == 250 %>
+              <tr>
+                <td><%= food.name %></td>
+                <td>
                   <% if food.price!=150 && food.price!=200 && food.price!=250 %>
-                <tr>
-                  <td><%= food.name %></td>
-                  <td>
-                    <% if food.picture && food.picture.url %>
-                      <button type="button" class="btn btn-link" data-toggle="modal" data-target="#exampleModalCenter-<%= food.id %>">
-                      <%=  '🐓' %>
-                    <% end %>
-                      </button>
-                    <div class="modal fade" id="exampleModalCenter-<%= food.id %>" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle-<%= food.id %>" aria-hidden="true">
-                      <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
-                        <div class="modal-content">
-                          <div class="modal-header">
-                            <p5 class="modal-title" id="exampleModalCenterTitle-<%= food.id %>"><%= food.name %></p5>
-                              <button type="button" class="close" data-dismiss="modal" aria-label="閉じる">
-                                <span aria-hidden="true">&times;</span>
-                              </button>
-                          </div>
-                            <div class="modal-body">
-                              <div class="modalpicture">
-                                <p><%= image_tag "#{food.picture.url}",:width => '50%', :height => '50%'  %></p>
-                              </div>
+                    <button type="button" class="btn btn-link" data-toggle="modal" data-target="#exampleModalCenter-<%= food.id %>">
+                    <%=  '🐓' %>
+                  <% else %>
+                    <%= '　'%>
+                  <% end %>
+                    </button>
+                  <div class="modal fade" id="exampleModalCenter-<%= food.id %>" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle-<%= food.id %>" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered" role="document">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <p5 class="modal-title" id="exampleModalCenterTitle-<%= food.id %>"><%= food.name %></p5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="閉じる">
+                              <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                          <div class="modal-body">
+                            <div class="modalpicture">
+                              <p><%= image_tag "#{food.picture.url}",:width => '50%', :height => '50%'  %></p>
                             </div>
-                          <div class="modal-footer">
-                            <h5><%= food.price %>円</h5>
                           </div>
+                        <div class="modal-footer">
+                          <h5><%= food.price %>円</h5>
                         </div>
                       </div>
                     </div>
-                    <% if current_user == nil %>
-                    <% elsif current_user.admin == false %>
-                    <% elsif current_user.admin == true %>
-                  <td>
-                    <button type="button" class="btn btn-warning rounded-pill">
-                    <%= link_to '編集 ', edit_food_path(food.id), data: { confirm: '本当に編集していいですか？' } %></button></td>
-                  <td>
-                    <button type="button" class="btn btn-secondary rounded-pill">
-                    <%= link_to '削除', food_path(food.id), method: :delete, data: { confirm: '本当に削除していいですか？' } %></button></td>
-                    <% end %>
-                </tr>
-                 <% end %>
+                  </div>
+                </td>
+                  <% if current_user == nil %>
+                  <% elsif current_user.admin == false %>
+                  <% elsif current_user.admin == true %>
+                <td>
+                  <button type="button" class="btn btn-warning rounded-pill">
+                  <%= link_to '編集', edit_food_path(food.id), data: { confirm: '本当に編集していいですか？' } %>
+                  </button>
+                </td>
+                <td>
+                  <button type="button" class="btn btn-secondary rounded-pill">
+                  <%= link_to '削除', food_path(food.id), method: :delete, data: { confirm: '本当に削除していいですか？' } %>
+                  </button>
+                </td>
                 <% end %>
-              </tbody>
-            </table>
-          </div>
+              </tr>
+              <% end %>
+              <% end %>
+            </tbody>
+          </table>
         </div>
-     </div>
+      </div>
+    </div>
   </div>
 </div>

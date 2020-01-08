@@ -10,7 +10,7 @@ class FoodsController < ApplicationController
   end
 
   def new
-      @food = Food.new
+    @food = Food.new
   end
 
   def create
@@ -46,7 +46,7 @@ class FoodsController < ApplicationController
   def food_params
     params.require(:food).permit(:name, :picture, :picture_cache, :price, :comment)
   end
-
+  
   def set_food
     @food = Food.find(params[:id])
   end

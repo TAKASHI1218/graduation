@@ -1,195 +1,135 @@
 <div class="blog">
-<div class='blogtop'>
-  <div class='blogtitle'>
-    <p1>T o r i y u u - notice board</p1>
-  </div>
-
-  <button type="button" class="btn btn-link" data-toggle="modal" data-target="#exampleModalLong">
- How to use
-</button>
-
-<!-- モーダルの設定 -->
-<div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLongTitle">How to use</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="閉じる">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-bodyforblog">
-        <ul>
-          <li>投稿者のみ編集と削除ができます。</li>
-          <li>ご来店日は空欄でも構いません。</li>
-          <li>本文 & コメント ボタンから投稿に対してコメントできます。<br>(ログインユーザーのみ)</li>
-          <li>🐓をクリックするとお写真がみれます。</li>
-        </ul>
-      </div>
-      <!-- <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">閉じる</button>
-        <button type="button" class="btn btn-primary">変更を保存</button>
-      </div> -->
+  <div class='blogtop'>
+    <div class='blogtitle'>
+      <p1>T o r i y u u - notice board</p1>
     </div>
-  </div>
-</div>
-
-<br>
-</div>
-
-
-<p1 class="btn-horizontal-border">
-  <%= link_to 'ご満足度でソートする', blogs_path(sort_status: "true") %>
-</p1>
-
-<p1 class="btn-horizontal-border">
-  <%= link_to 'ご来店日でソートする', blogs_path(sort_visit_date: "true") %>
-</p1>
-
-<p1 class="btn-horizontal-border">
-  <%= link_to '最新順でソートする', blogs_path(sort_created: "true") %>
-</p1>
-
-<br>
-<br>
-<% if user_signed_in? %>
-
-<p1 class="btn-circle-border-double">
-  <%=link_to '投稿する', new_blog_path %>
-<% end %>
-</p1>
-
-<% if current_user == nil %>
-<% elsif current_user.admin %>
-<button type="button" class="btn btn-success rounded-pill">
-  <%= link_to '従業員一覧へ', users_path %></button>
-<% end %>
-
-
-
-<br>
-<br>
-<table class="table table-hover">
-  <tr class="noticehead">
-    <th>お名前</th>
-    <th>題名</th>
-    <th>お写真</th>
-    <th>作成日</th>
-    <th>ご満足度</th>
-    <th>ご来店日</th>
-    <th colspan="3"></th>
-
-
-  </tr>
-
-<% @blogs.each do |blog| %>
-  <tr>
-    <td><%= blog.user.name %></td>
-
-    <td><%= blog.title %></td>
-    <td>
-    <% if  blog.picture.url %>
-    <button type="button" class="btn btn-link" data-toggle="modal" data-target="#exampleModalCenter-<%= blog.id %>">
-    <%=  '🐓' %>
-  <% elsif blog.picture.url == nil %>
-    <%= 'なし'%>
-  <% end %>
+    <button type="button" class="btn btn-link" data-toggle="modal" data-target="#exampleModalLong">
+      How to use
     </button>
-  <div class="modal fade" id="exampleModalCenter-<%= blog.id %>" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle-<%= blog.id %>" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
+    <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLongTitle">How to use</h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="閉じる">
               <span aria-hidden="true">&times;</span>
             </button>
-        </div>
-          <div class="modal-body">
-            <div class="modalpicture">
-              <p>
-                <% if  blog.picture.url %>
-                <%= image_tag blog.picture.url ,:width => '80%', :height => '80%' %></p>
-                <% elsif blog.picture.url == nil %>
-                <% end %>
-            </div>
           </div>
-        <div class="modal-footer">
+          <div class="modal-bodyforblog">
+            <ul>
+              <li>投稿者のみ編集と削除ができます。</li>
+              <li>ご来店日は空欄でも構いません。</li>
+              <li>本文 & コメント ボタンから投稿に対してコメントできます。<br>(ログインユーザーのみ)</li>
+              <li>🐓をクリックするとお写真がみれます。</li>
+            </ul><br>
+          </div>
         </div>
       </div>
     </div>
   </div>
-  </td>
-    <td><%= blog.created_at.strftime('%Y年%m月%d日')%></td>
+  <p1 class="btn-horizontal-border">
+    <%= link_to 'ご満足度でソートする', blogs_path(sort_status: "true") %>
+  </p1>
+  <p1 class="btn-horizontal-border">
+    <%= link_to 'ご来店日でソートする', blogs_path(sort_visit_date: "true") %>
+  </p1>
+  <p1 class="btn-horizontal-border">
+    <%= link_to '最新順でソートする', blogs_path(sort_created: "true") %><br>
+  </p1><br>
 
-
-
-    <td><%= blog.status %></td>
-
-    <td><% if blog.visit_date %>
-      <%= blog.visit_date.strftime('%Y年%m月%d日') %>
-        <% else %>
-      <%= blog.visit_date %>
-        <% end %>
-    </td>
-
-
-
-    <td>
-      <p1 class="btn-cross"><%= link_to '本文 & コメント', blog_path(blog.id) %></p1>
-    </td>
-
-    <td>
-
-    <% if current_user == nil %>
-    <p1 class="btn-partial-line">
-<i class="fa fa-caret-right"></i><%= "-" %>
-</p1>
-
-
-    <% elsif current_user.id == blog.user_id || current_user.admin == true %>
-    <p1 class="btn-partial-line">
-      <i class="fa fa-caret-right"></i><%= link_to '編集', edit_blog_path(blog.id) %>
-    </p1>
-
-    <% elsif current_user.id != blog.user_id || current_user.admin == false %>
-        <button type="button" class="btn btn-warning rounded-pill">
-        <%= "-" %>
+  <% if user_signed_in? %>
+  <p1 class="btn-circle-border-double">
+    <%=link_to '投稿する', new_blog_path %>
+  <% end %>
+  </p1>
+  <table class="table table-hover">
+    <tr class="noticehead">
+      <th>お名前</th>
+      <th>題名</th>
+      <th>お写真</th>
+      <th>作成日</th>
+      <th>ご満足度</th>
+      <th>ご来店日</th>
+      <th colspan="3"></th>
+    </tr>
+    <% @blogs.each do |blog| %>
+    <tr>
+      <td><%= blog.user.name %></td>
+      <td><%= blog.title %></td>
+      <td>
+      <% if  blog.picture.url %>
+        <button type="button" class="btn btn-link" data-toggle="modal" data-target="#exampleModalCenter-<%= blog.id %>">
+        <%= '🐓' %>
+      <% elsif blog.picture.url == nil %>
+        <%= 'なし'%>
+      <% end %>
         </button>
+        <div class="modal fade" id="exampleModalCenter-<%= blog.id %>" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle-<%= blog.id %>" aria-hidden="true">
+          <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="閉じる">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <div class="modalpicture">
+                  <p>
+                    <% if  blog.picture.url %>
+                      <%= image_tag blog.picture.url ,:width => '80%', :height => '80%' %></p>
+                    <% elsif blog.picture.url == nil %>
+                    <% end %>
+                </div>
+              </div>
+              <div class="modal-footer"></div>
+            </div>
+          </div>
+        </div>
+      </td>
+      <td><%= blog.created_at.strftime('%Y年%m月%d日')%></td>
+      <td><%= blog.status %></td>
+      <td>
+      <% if blog.visit_date %>
+        <%= blog.visit_date.strftime('%Y年%m月%d日') %>
+      <% else %>
+        <%= blog.visit_date %>
+      <% end %>
+      </td>
+      <td>
+        <p1 class="btn-cross"><%= link_to '本文 & コメント', blog_path(blog.id) %></p1>
+      </td>
+      <td>
+        <% if current_user == nil %>
+        <p1 class="btn-partial-line">
+          <i class="fa fa-caret-right"></i><%= " " %>
+        </p1>
+        <% elsif current_user.id == blog.user_id || current_user.admin == true %>
+        <p1 class="btn-partial-line">
+          <i class="fa fa-caret-right"></i><%= link_to '編集', edit_blog_path(blog.id) %>
+        </p1>
+        <% elsif current_user.id != blog.user_id || current_user.admin == false %>
+        <p1 class="btn-partial-line">
+          <%= " " %>
+        </p1>
+        <% end %>
+      </td>
+      <td>
+        <% if current_user == nil %>
+        <p1 class="btn-flat-simple">
+          <%= " " %>
+        </p1>
+        <% elsif current_user.id == blog.user_id || current_user.admin == true %>
+        <p1 class="btn-flat-simple">
+          <%= link_to '削除', blog_path(blog.id), method: :delete, data: { confirm: '本当に削除していいですか？' } %>
+        </p1>
+        <% elsif current_user.id != blog.user_id || current_user.admin == false %>
+        <p1 class="btn-flat-simple">
+          <%= " " %>
+        </p1>
+        <% end %>
+      </td>
+    </tr>
     <% end %>
-
-    </td>
-
-    <td>
-
-    <% if current_user == nil %>
-    <p1 class="btn-flat-simple">
-<i class="fa fa-caret-right">
-      <%= "-" %>
-      </p1>
-
-
-    <% elsif current_user.id == blog.user_id || current_user.admin == true %>
-    <p1 class="btn-flat-simple">
-<i class="fa fa-caret-right">
-      <%= link_to '削除', blog_path(blog.id), method: :delete, data: { confirm: '本当に削除していいですか？' } %>
-      </p1>
-
-
-    <% elsif current_user.id != blog.user_id || current_user.admin == false %>
-    <p1 class="btn-flat-simple">
-<i class="fa fa-caret-right">
-      <%= "-" %>
-      </p1>
-    <% end %>
-
-    </td>
-
-
-
-
-  </tr>
-<% end %>
-</table>
-
-<p1 class="btn-square-toy">
-<%= paginate @blogs %></p1>
+  </table>
+  <p1 class="btn-square-toy"><%= paginate @blogs %></p1>
 </div>

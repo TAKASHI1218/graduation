@@ -1,128 +1,79 @@
 <!DOCTYPE html>
 <html>
   <head>
-
     <%= analytics_init if Rails.env.production? %>
-    <meta name="google-site-verification" content="kk6tFO9EXVc53Elkt6-Tupx5PQU5fgcDNb1OFQP2h2A" />
+    <meta name="google-site-verification" content="kk6tFO9EXVc53Elkt6-Tupx5PQU5fgcDNb1OFQP2h2A"/>
     <link href="https://fonts.googleapis.com/css?family=Permanent+Marker&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Sawarabi+Mincho&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Noto+Sans+JP" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Indie+Flower" rel="stylesheet">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css">
-
-
-
-
-
-
     <title>toriyuu</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
-
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-
-    
-
-
   </head>
-
   <header>
-
-
-
     <div class="header-logo-menu">
       <div id="nav-drawer">
-          <input id="nav-input" type="checkbox" class="nav-unshown">
-          <label id="nav-open" for="nav-input"><span></span></label>
-          <label class="nav-unshown" id="nav-close" for="nav-input"></label>
-          <div id="nav-content">
-            <!-- <button type="button" class="btn btn-light rounded-pill"> -->
-            <%= link_to "トップページ", tops_path %><br>
-       <!-- <button type="button" class="btn btn-light rounded-pill"> -->
-            <%= link_to "アクセス", maps_path %><br>
-
-            <%= link_to "お店のInstagram", "https://www.instagram.com/toriyuu_yakitori", :target=>["_blank"] %><br>
-            <%= link_to "Toriyuu - notice board", blogs_path %>
-            <br><br>
-          <!-- <button type="button" class="btn btn-warning rounded-pill"> -->
-            <%= link_to "焼き鳥", foods_path %><br>
-          <!-- <button type="button" class="btn btn-warning rounded-pill"> -->
-            <%= link_to "一品料理", side_menus_path %><br>
-          <!-- <button type="button" class="btn btn-warning rounded-pill"> -->
-            <%= link_to "お飲み物", drinks_path %><br>
-          <!-- <button type="button" class="btn btn-warning rounded-pill"> -->
-            <%= link_to "日本酒", sakes_path %><br>
-          </div>
+        <input id="nav-input" type="checkbox" class="nav-unshown">
+        <label id="nav-open" for="nav-input">
+          <span></span></label>
+        <label class="nav-unshown" id="nav-close" for="nav-input"></label>
+        <div id="nav-content">
+          <%= link_to "トップページ", tops_path %><br>
+          <%= link_to "アクセス", maps_path %><br>
+          <%= link_to "お店のInstagram", "https://www.instagram.com/toriyuu_yakitori", :target=>["_blank"] %><br>
+          <%= link_to "Toriyuu - notice board", blogs_path %><br>
+          <%= link_to "焼き鳥", foods_path %><br>
+          <%= link_to "一品料理", side_menus_path %><br>
+          <%= link_to "お飲み物", drinks_path %><br>
+          <%= link_to "日本酒", sakes_path %><br>
+        </div>
       </div>
     </div>
-
-     <p1 class="logo-erea"><%= link_to "T o r i u u", tops_path %></p1>
+    <p1 class="logo-erea"><%= link_to "T o r i u u", tops_path %></p1>
   </header>
-
   <body>
-
-
     <% if notice %>
       <p class="alert alert-notice"><%= notice %></p>
     <% end %>
-      <% if alert %>
-        <p class="alert alert-error"><%= alert %></p>
+    <% if alert %>
+      <p class="alert alert-error"><%= alert %></p>
     <% end %>
-
-
     <%= yield %>
-
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
-
   </body>
-
   <footer >
-
-    <p1>住所：〒132-0013 東京都江戸川区江戸川２丁目６−２<p1>
-
-    <p1>営業時間：火曜日～日曜　18時から24時(定休日：月曜)<p1>
-    <br>
+    <p1>住所：〒132-0013 東京都江戸川区江戸川２丁目６−２<p1><br>
+    <p1>営業時間：火曜日～日曜 18時から24時(定休日：月曜)<p1>
     <p1>TEL: 03-5879-8522</p1>
-
-
-    <% if user_signed_in? %>　　　　　
-
-    <%= current_user.name %>
-    さんがログインしています。
+    <% if user_signed_in? %>
+      <%= current_user.name %>
+      さんがログインしています。
     <% end %>
     <% if current_user == nil %>
     <% elsif current_user.admin == true %>
       <%= '🐓' %>
     <% end %>
-
-
-
-
-
-
-
-
     <% if current_user == nil %>
     <% elsif current_user.admin == false %>
     <% elsif current_user.admin == true%>
-      <%= link_to "業務連絡一覧画面", blogs_path %>
-      <%= link_to '従業員一覧', users_path %>
+      <button type="button" class="btn btn-success rounded-pill">
+      <%= link_to '会員一覧', users_path %>
+      </button>
     <% end %>
-    <% if current_user == nil %>
+  　<% if current_user == nil %>
     <% elsif current_user.admin == false %>
     <% elsif current_user.admin == true%>
+      <button type="button" class="btn btn-warning rounded-pill">
       <%= link_to 'Adminぺージ', rails_admin_path %>
+      </button>
     <% end %>
-
-
-
-
-
-    </footer>
+  </footer>
 </html>

@@ -1,28 +1,20 @@
 <%= form_with(model: [blog, comment], remote: true) do |form| %>
-  <% if comment.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(comment.errors.count, "error") %> prohibited this comment from being saved:</h2>
-      <ul>
+<% if comment.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= pluralize(comment.errors.count, "error") %>
+      prohibited this comment from being saved:</h2>
+    <ul>
       <% comment.errors.full_messages.each do |message| %>
         <li><%= message %></li>
       <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div class="field">
-    <p1>コメント</p1>
-    <br>
-    <%= form.text_area :content %>
+    </ul>
   </div>
-
-
-
-  <div class="actions">
-  <!-- <p class = "project-comment__button-wrap"> -->
-    <%= form.submit '投稿', class: 'submitbutton' %>
-  <!-- </p> -->
-
-  </div>
-
+<% end %>
+<div class="field">
+  <p1>コメント</p1><br>
+  <%= form.text_area :content %>
+</div>
+<div class="actions">
+  <%= form.submit '投稿', class: 'submitbutton' %>
+</div>
 <% end %>

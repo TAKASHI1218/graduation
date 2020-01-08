@@ -1,291 +1,272 @@
-<div class = "sakebody">
-<div class ="container">
-  <div class="ordertype">
-    <p1>日本酒</p1>
-  </div>
-  <div class="order-title" >
-      <p2>店主がこだわりの日本酒を季節に合わせ厳選したものを仕入れており、
-      純米酒、純米吟醸、純米大吟醸、熟清酒など幅広くご提供させて頂いております。
-      ワイングラスで600円～800円よりご提供させて頂いております。</p2>
-  </div>
-  <% if current_user == nil %>
-  <% elsif current_user.admin == false %>
-  <% elsif current_user.admin == true %>
-    <button type="button" class="btn btn-danger rounded-pill">
-    <%= link_to '新しく日本酒を登録する', new_sake_path %></button>
-  <% end %>
-
-  <br>
-
-
-
-  <div class="row">
-
-    <div class="col">
-      <div sakekind0>
-        <table>
-          <thead>
-            <tr>
-              <th height="30"></th>
-              <th height="30"></th>
-
-            </tr>
-          </thead>
-          <tbody>
-            <% @sakes.each do |sake| %>
-            <% if sake.kind == '一列目' %>
-            <tr>
-              <td width=300><%= sake.name %></td>
-              <td><%= sake.price %></td>
-              <td>
-                <% if sake.picture && sake.picture.url %>
+<div class="sakebody">
+  <div class="container">
+    <div class="ordertype">
+      <p1>日本酒</p1>
+    </div>
+    <div class="order-title">
+      <p2>店主がこだわりの日本酒を季節に合わせ厳選したものを仕入れており、 純米酒、純米吟醸、純米大吟醸、熟清酒など幅広くご提供させて頂いております。 ワイングラスで600円～800円よりご提供させて頂いております。</p2><br>
+      <p4 class="torimark">※🐓をクリックすると写真が表示されます。(一部取り揃えております。)</p4>
+    </div>
+    <% if current_user == nil %>
+    <% elsif current_user.admin == false %>
+    <% elsif current_user.admin == true %>
+      <button type="button" class="btn btn-danger rounded-pill">
+      <%= link_to '新しく日本酒を登録する', new_sake_path %>
+      </button><br>
+    <% end %>
+    <div class="row">
+      <div class="col">
+        <div class="sakekind">
+          <table>
+            <thead>
+              <tr>
+                <th height="30"></th>
+                <th height="30"></th>
+              </tr>
+            </thead>
+            <tbody>
+              <% @sakes.each do |sake| %>
+              <% if sake.kind == '一列目' %>
+              <tr>
+                <td width="300"><%= sake.name %></td>
+                <td><%= sake.price %></td>
+                <td>
+                  <% if sake.picture && sake.picture.url %>
                   <button type="button" class="btn btn-link" data-toggle="modal" data-target="#exampleModalCenter-<%= sake.id %>">
-                  <%=  '🐓' %>
-                <% else %>
-                  <%= '　'%>
-                <% end %>
+                    <%= '🐓' %>
+                    <% else %>
+                    <%= ' '%>
+                  <% end %>
                   </button>
                   <div class="modal fade" id="exampleModalCenter-<%= sake.id %>" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle-<%= sake.id %>" aria-hidden="true">
                     <div class="modal-dialog modal-dialog-centered" role="document">
                       <div class="modal-content">
                         <div class="modal-header">
                           <p5 class="modal-title" id="exampleModalCenterTitle-<%= sake.id %>"><%= sake.name %></p5>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="閉じる">
-                              <span aria-hidden="true">&times;</span>
-                            </button>
+                          <button type="button" class="close" data-dismiss="modal" aria-label="閉じる">
+                            <span aria-hidden="true">&times;</span>
+                          </button>
                         </div>
-                          <div class="modal-body">
-                            <div class="modalpicture">
-                              <p><%= image_tag "#{sake.picture.url}",:width => '50%', :height => '50%' %></p>
-                            </div>
+                        <div class="modal-body">
+                          <div class="modalpicture">
+                            <p><%= image_tag "#{sake.picture.url}",:width => '50%', :height => '50%' %></p>
                           </div>
-                        <div class="modal-footer">
                         </div>
+                        <div class="modal-footer"></div>
                       </div>
                     </div>
                   </div>
-               </td>
-
-              <% if current_user == nil %>
-              <% elsif current_user.admin == false %>
-              <% elsif current_user.admin == true %>
-              <td>
-                <button type="button" class="btn btn-warning rounded-pill">
-                <%= link_to "編集", edit_sake_path(sake.id), data: { confirm: '本当に編集していいですか？' } %></button></td>
-              <td>
-                <button type="button" class="btn btn-secondary rounded-pill">
-                <%= link_to '削除', sake_path(sake.id), method: :delete, data: { confirm: '本当に削除していいですか？' } %></button></td>
-              <% end %>
-            </tr>
-            <% end %>
-            <% end %>
-          </tbody>
-        </table>
-      </div>
-    </div>
-
-    <div class="col">
-      <div sakekind1>
-        <table>
-          <thead>
-            <tr>
-              <th height="30"></th>
-              <th height="30"></th>
-
-            </tr>
-          </thead>
-          <tbody>
-            <% @sakes.each do |sake| %>
-            <% if sake.kind == '二列目' %>
-            <tr>
-              <td width=300><%= sake.name %></td>
-              <td><%= sake.price %></td>
-              <td>
-                <% if sake.picture && sake.picture.url %>
-                  <button type="button" class="btn btn-link" data-toggle="modal" data-target="#exampleModalCenter-<%= sake.id %>">
-                  <%=  '🐓' %>
-                <% else %>
-                  <%= '　'%>
-                <% end %>
-                  </button>
-                  <div class="modal fade" id="exampleModalCenter-<%= sake.id %>" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle-<%= sake.id %>" aria-hidden="true">
-                    <div class="modal-dialog modal-dialog-centered" role="document">
-                      <div class="modal-content">
-                        <div class="modal-header">
-                          <p5 class="modal-title" id="exampleModalCenterTitle-<%= sake.id %>"><%= sake.name %></p5>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="閉じる">
-                              <span aria-hidden="true">&times;</span>
-                            </button>
-                        </div>
-                          <div class="modal-body">
-                            <div class="modalpicture">
-                              <p><%= image_tag "#{sake.picture.url}",:width => '50%', :height => '50%' %></p>
-                            </div>
-                          </div>
-                        <div class="modal-footer">
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-               </td>
-
-              <% if current_user == nil %>
-              <% elsif current_user.admin == false %>
-              <% elsif current_user.admin == true %>
-              <td>
-                <button type="button" class="btn btn-warning rounded-pill">
-                <%= link_to "編集", edit_sake_path(sake.id), data: { confirm: '本当に編集していいですか？' } %></button></td>
-              <td>
-                <button type="button" class="btn btn-secondary rounded-pill">
-                <%= link_to '削除', sake_path(sake.id), method: :delete, data: { confirm: '本当に削除していいですか？' } %></button></td>
-              <% end %>
-            </tr>
-            <% end %>
-            <% end %>
-          </tbody>
-        </table>
-      </div>
-    </div>
-
-
-
-<div class="w-100"></div>
-
-
-
-
-
-    <div class="col">
-      <div sakekind2>
-        <table>
-          <thead>
-           <tr>
-             <th></th>
-             <th></th>
-           </tr>
-          </thead>
-        <tbody>
-          <% @sakes.each do |sake| %>
-            <% if sake.kind == '三列目' %>
-          <tr>
-           <td width=300 ><%= sake.name %></td>
-           <td>
-             <% if sake.picture && sake.picture.url %>
-               <button type="button" class="btn btn-link" data-toggle="modal" data-target="#exampleModalCenter-<%= sake.id %>">
-               <%=  '🐓' %>
-             <% else %>
-               <%= '　'%>
-             <% end %>
-               </button>
-               <div class="modal fade" id="exampleModalCenter-<%= sake.id %>" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle-<%= sake.id %>" aria-hidden="true">
-                 <div class="modal-dialog modal-dialog-centered" role="document">
-                   <div class="modal-content">
-                     <div class="modal-header">
-                       <p5 class="modal-title" id="exampleModalCenterTitle-<%= sake.id %>"><%= sake.name %></p5>
-                         <button type="button" class="close" data-dismiss="modal" aria-label="閉じる">
-                           <span aria-hidden="true">&times;</span>
-                         </button>
-                     </div>
-                       <div class="modal-body">
-                         <div class="modalpicture">
-                           <p><%= image_tag "#{sake.picture.url}",:width => '50%', :height => '50%' %></p>
-                         </div>
-                       </div>
-                     <div class="modal-footer">
-                     </div>
-                   </div>
-                 </div>
-               </div>
-            </td>
-
-           <td><%= sake.price %></td>
-              <% if current_user == nil %>
-              <% elsif current_user.admin == false %>
-              <% elsif current_user.admin == true %>
+                </td>
+                <% if current_user == nil %>
+                <% elsif current_user.admin == false %>
+                <% elsif current_user.admin == true %>
                 <td>
                   <button type="button" class="btn btn-warning rounded-pill">
-                  <%= link_to "編集", edit_sake_path(sake.id), data: { confirm: '本当に編集していいですか？' } %></button></td>
+                  <%= link_to "編集", edit_sake_path(sake.id), data: { confirm: '本当に編集していいですか？' } %>
+                  </button>
+                </td>
                 <td>
                   <button type="button" class="btn btn-secondary rounded-pill">
-                  <%= link_to '削除', sake_path(sake.id), method: :delete, data: { confirm: '本当に削除していいですか？' } %></button></td>
+                  <%= link_to '削除', sake_path(sake.id), method: :delete, data: { confirm: '本当に削除していいですか？' } %>
+                  </button>
+                </td>
+                <% end %>
+              </tr>
               <% end %>
-          </tr>　
-            <% end %>
-          <% end %>
-        </tbody>
-        </table>
+              <% end %>
+            </tbody>
+          </table>
+        </div>
       </div>
-    </div>
-
-
-
-    <div class="col">
-     <div sakekind3>
-       <table>
-         <thead>
-          <tr>　
-            <th></th>
-            <th></th>
-          </tr>
-         </thead>
-       <tbody>
-         <% @sakes.each do |sake| %>
-           <% if sake.kind == '四列目' %>
-         <tr>
-          <td width=300><%= sake.name %></td>
-          <td>
-            <% if sake.picture && sake.picture.url %>
-              <button type="button" class="btn btn-link" data-toggle="modal" data-target="#exampleModalCenter-<%= sake.id %>">
-              <%=  '🐓' %>
-            <% else %>
-              <%= '　'%>
-            <% end %>
-              </button>
-              <div class="modal fade" id="exampleModalCenter-<%= sake.id %>" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle-<%= sake.id %>" aria-hidden="true">
-                <div class="modal-dialog modal-dialog-centered" role="document">
-                  <div class="modal-content">
-                    <div class="modal-header">
-                      <p5 class="modal-title" id="exampleModalCenterTitle-<%= sake.id %>"><%= sake.name %></p5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="閉じる">
-                          <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                      <div class="modal-body">
-                        <div class="modalpicture">
-                          <p><%= image_tag "#{sake.picture.url}",:width => '50%', :height => '50%' %></p>
+      <div class="col">
+        <div class="sakekind">
+          <table>
+            <thead>
+              <tr>
+                <th height="30"></th>
+                <th height="30"></th>
+              </tr>
+            </thead>
+            <tbody>
+              <% @sakes.each do |sake| %>
+              <% if sake.kind == '二列目' %>
+              <tr>
+                <td width="300"><%= sake.name %></td>
+                <td><%= sake.price %></td>
+                <td>
+                <% if sake.picture && sake.picture.url %>
+                <button type="button" class="btn btn-link" data-toggle="modal" data-target="#exampleModalCenter-<%= sake.id %>">
+                  <%= '🐓' %>
+                <% else %>
+                  <%= ' '%>
+                <% end %>
+                  </button>
+                  <div class="modal fade" id="exampleModalCenter-<%= sake.id %>" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle-<%= sake.id %>" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered" role="document">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <p5 class="modal-title" id="exampleModalCenterTitle-<%= sake.id %>"><%= sake.name %></p5>
+                          <button type="button" class="close" data-dismiss="modal" aria-label="閉じる">
+                            <span aria-hidden="true">&times;</span>
+                          </button>
                         </div>
+                        <div class="modal-body">
+                          <div class="modalpicture">
+                            <p><%= image_tag "#{sake.picture.url}",:width => '50%', :height => '50%' %></p>
+                          </div>
+                        </div>
+                        <div class="modal-footer"></div>
                       </div>
-                    <div class="modal-footer">
                     </div>
                   </div>
-                </div>
-              </div>
-           </td>
-
-          <td><%= sake.price %></td>
-             <% if current_user == nil %>
-             <% elsif current_user.admin == false %>
-             <% elsif current_user.admin == true %>
-               <td>
-                 <button type="button" class="btn btn-warning rounded-pill">
-                 <%= link_to "編集", edit_sake_path(sake.id), data: { confirm: '本当に編集していいですか？' } %></button></td>
-               <td>
-                 <button type="button" class="btn btn-secondary rounded-pill">
-                 <%= link_to '削除', sake_path(sake.id), method: :delete, data: { confirm: '本当に削除していいですか？' } %></button></td>
-             <% end %>
-         </tr>
-           <% end %>
-         <% end %>
-       </tbody>
-       </table>
-     </div>
+                </td>
+                <% if current_user == nil %>
+                <% elsif current_user.admin == false %>
+                <% elsif current_user.admin == true %>
+                <td>
+                  <button type="button" class="btn btn-warning rounded-pill">
+                  <%= link_to "編集", edit_sake_path(sake.id), data: { confirm: '本当に編集していいですか？' } %>
+                  </button>
+                </td>
+                <td>
+                  <button type="button" class="btn btn-secondary rounded-pill">
+                  <%= link_to '削除', sake_path(sake.id), method: :delete, data: { confirm: '本当に削除していいですか？' } %>
+                  </button>
+                </td>
+                <% end %>
+              </tr>
+              <% end %>
+              <% end %>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="w-100"></div>
+      <div class="col">
+        <div class="sakekind">
+          <table>
+            <thead>
+              <tr>
+                <th></th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody>
+              <% @sakes.each do |sake| %>
+              <% if sake.kind == '三列目' %>
+              <tr>
+                <td width="300"><%= sake.name %></td>
+                <td><%= sake.price %></td>
+                <td>
+                  <% if sake.picture && sake.picture.url %>
+                  <button type="button" class="btn btn-link" data-toggle="modal" data-target="#exampleModalCenter-<%= sake.id %>">
+                    <%= '🐓' %>
+                  <% else %>
+                    <%= ' '%>
+                  <% end %>
+                  </button>
+                  <div class="modal fade" id="exampleModalCenter-<%= sake.id %>" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle-<%= sake.id %>" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered" role="document">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <p5 class="modal-title" id="exampleModalCenterTitle-<%= sake.id %>"><%= sake.name %></p5>
+                          <button type="button" class="close" data-dismiss="modal" aria-label="閉じる">
+                            <span aria-hidden="true">&times;</span>
+                          </button>
+                        </div>
+                        <div class="modal-body">
+                          <div class="modalpicture">
+                            <p><%= image_tag "#{sake.picture.url}",:width => '50%', :height => '50%' %></p>
+                          </div>
+                        </div>
+                        <div class="modal-footer"></div>
+                      </div>
+                    </div>
+                  </div>
+                </td>
+                <% if current_user == nil %>
+                <% elsif current_user.admin == false %>
+                <% elsif current_user.admin == true %>
+                <td>
+                  <button type="button" class="btn btn-warning rounded-pill">
+                  <%= link_to "編集", edit_sake_path(sake.id), data: { confirm: '本当に編集していいですか？' } %>
+                  </button>
+                  </td>
+                <td>
+                  <button type="button" class="btn btn-secondary rounded-pill">
+                  <%= link_to '削除', sake_path(sake.id), method: :delete, data: { confirm: '本当に削除していいですか？' } %>
+                  </button>
+                </td>
+                <% end %>
+              </tr>
+              <% end %>
+              <% end %>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="col">
+        <div class="sakekind">
+          <table>
+            <thead>
+              <tr>
+                <th></th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody>
+              <% @sakes.each do |sake| %>
+              <% if sake.kind == '四列目' %>
+              <tr>
+                <td width="300"><%= sake.name %></td>
+                <td><%= sake.price %></td>
+                <td>
+                  <% if sake.picture && sake.picture.url %>
+                  <button type="button" class="btn btn-link" data-toggle="modal" data-target="#exampleModalCenter-<%= sake.id %>">
+                    <%= '🐓' %>
+                  <% else %>
+                    <%= ' '%>
+                  <% end %>
+                  </button>
+                  <div class="modal fade" id="exampleModalCenter-<%= sake.id %>" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle-<%= sake.id %>" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered" role="document">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <p5 class="modal-title" id="exampleModalCenterTitle-<%= sake.id %>"><%= sake.name %></p5>
+                          <button type="button" class="close" data-dismiss="modal" aria-label="閉じる">
+                            <span aria-hidden="true">&times;</span>
+                          </button>
+                        </div>
+                        <div class="modal-body">
+                          <div class="modalpicture">
+                            <p><%= image_tag "#{sake.picture.url}",:width => '50%', :height => '50%' %></p>
+                          </div>
+                        </div>
+                        <div class="modal-footer"></div>
+                      </div>
+                    </div>
+                  </div>
+                </td>
+                <% if current_user == nil %>
+                <% elsif current_user.admin == false %>
+                <% elsif current_user.admin == true %>
+                <td>
+                  <button type="button" class="btn btn-warning rounded-pill">
+                  <%= link_to "編集", edit_sake_path(sake.id), data: { confirm: '本当に編集していいですか？' } %></button>
+                </td>
+                <td>
+                  <button type="button" class="btn btn-secondary rounded-pill">
+                  <%= link_to '削除', sake_path(sake.id), method: :delete, data: { confirm: '本当に削除していいですか？' } %>
+                  </button>
+                </td>
+                <% end %>
+              </tr>
+              <% end %>
+              <% end %>
+            </tbody>
+          </table>
+        </div>
+      </div>
     </div>
-
-    <br>
-
-
-
-<br>
-
-</div>
+  </div>
 </div>

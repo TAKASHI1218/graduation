@@ -9,7 +9,7 @@ class SideMenusController < ApplicationController
   end
 
   def new
-      @side_menu = SideMenu.new
+    @side_menu = SideMenu.new
   end
 
   def create

@@ -1,27 +1,16 @@
- <div class="loginbody">
-   <div class='blogtitle'>
-     <p1>T o r i y u u - notice board</p1>
-   </div>
-   <br>
-   <br>
-
-  <p1 class="logintitle">パスワード確認</p1>
-   <br>
-   <br>
-
-<%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
+<div class="loginbody">
+  <div class='blogtitle'>
+    <p1>T o r i y u u - notice board</p1><br>
+  </div>
+  <p1 class="logintitle">パスワード確認</p1><br>
+  <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
-
   <div class="field">
-
-    <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "ご登録メールアドレス" %>
+    <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "ご登録メールアドレス" %><br>
   </div>
-  <br>
-
   <div class="actions">
-    <%= f.submit "パスワードリセットのメール送信", class:"submitbutton" %>
+    <%= f.submit "パスワードリセットのメール送信", class:"submitbuttonforlogin" %><br>
   </div>
-<% end %>
-<br>
+  <% end %>
 <%= render "devise/shared/links" %>
 </div>

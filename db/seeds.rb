@@ -12,28 +12,134 @@ User.create!(name:  "店長",
              uid: "2",
              provider: "2",
              admin: true)
-User.create!(name:  "従業員1",
+User.create!(name:  "焼き鳥大好き",
              email: "6136@yahoo.co.jp",
              password:  "61346134",
              password_confirmation: "61346134",
              uid: "3",
              provider: "3",
              admin: false)
-User.create!(name:  "従業員2",
+User.create!(name:  "日本酒大好き",
             email: "6137@yahoo.co.jp",
             uid: "4",
             provider: "4",
             password:  "61346134",
             password_confirmation: "61346134",
             admin: false)
-User.create!(name:  "従業員3",
+User.create!(name:  "焼き鳥マニア",
             email: "6138@yahoo.co.jp",
             uid: "5",
             provider: "5",
             password:  "61346134",
             password_confirmation: "61346134",
             admin: false)
+User.create!(name:  "焼き鳥命",
+            email: "6139@yahoo.co.jp",
+            uid: "6",
+            provider: "6",
+            password:  "61346134",
+            password_confirmation: "61346134",
+            admin: false)
+User.create!(name:  "毎日日本酒",
+            email: "6140@yahoo.co.jp",
+            uid: "7",
+            provider: "7",
+            password:  "61346134",
+            password_confirmation: "61346134",
+            admin: false)
+User.create!(name:  "毎日ビール",
+            email: "6141@yahoo.co.jp",
+            uid: "8",
+            provider: "8",
+            password:  "61346134",
+            password_confirmation: "61346134",
+            admin: false)
 
+
+Blog.create!(user_id: '8',
+            title: '店長不在',
+            content: '店長さんがお休みでお話したかったのに残念です。。。',
+            picture: '',
+            visit_date: '2019-04-26',
+            status:'少し不満。。')
+Blog.create!(user_id: '3',
+             title: 'ちょうちん最高でした。',
+             content: 'ちょうちんがとてもおいしかったです！',
+             picture: File.open("#{Rails.root}/db/seedpictures/f-chochin.jpg"),
+             visit_date: '2019-03-26',
+             status:'とても満足です！')
+Blog.create!(user_id: '6',
+            title: '白肝おいしい',
+            content: '他では味わえないおいしさでした。',
+            picture: File.open("#{Rails.root}/db/seedpictures/f-shirokimo.jpg"),
+            visit_date: '2019-05-26',
+            status:'満足です！')
+Blog.create!(user_id: '7',
+             title: '焼き鳥とあった日本酒',
+             content: '店長のおすすめで十四代と焼き鳥を食しました。最高でした。',
+             picture: File.open("#{Rails.root}/db/seedpictures/sake-14dai.jpg"),
+             visit_date: '2019-01-17',
+             status:'とても満足です！')
+Blog.create!(user_id: '5',
+            title: '焼き鳥フルコース',
+            content: 'ボリュームもあり味も最高でした。また来たいです。',
+            picture: '',
+            visit_date: '2019-08-26',
+            status:'普通')
+Blog.create!(user_id: '8',
+             title: 'ひさびさの日本酒',
+             content: 'いつもはビールしか飲みませんが今日は日本酒をひさびさに飲みエンジョイしました',
+             picture: File.open("#{Rails.root}/db/seedpictures/sake-3.jpg"),
+             visit_date: '2018-12-03',
+             status:'とても満足です！')
+Blog.create!(user_id: '3',
+            title: 'RE:ちょうちん最高でした。',
+            content: 'ちょうちんがとてもおいしかったです！また頼んでしまいました。',
+            picture: File.open("#{Rails.root}/db/seedpictures/f-chochin.jpg"),
+            visit_date: '2019-05-26',
+            status:'とても満足です！')
+Blog.create!(user_id: '7',
+             title: '再来店',
+             content: '再来店しました！やっぱりおいしいです！',
+             picture: '',
+             visit_date: '2019-02-3',
+             status:'満足です！')
+
+
+
+Comment.create!(user_id: '3',
+                blog_id: '2',
+                content: 'おいしそうですね。情報ありがとうございます！')
+Comment.create!(user_id: '7',
+                blog_id: '1',
+                content: '体調不良らしかったですよ～。')
+Comment.create!(user_id: '2',
+                blog_id: '1',
+                content: 'すみません。ご迷惑をおかけしました。。またお待ちしております！')
+Comment.create!(user_id: '2',
+                blog_id: '1',
+                content: 'ちょうちんは自慢の一品なので是非また召し上がってください！ありがとうございます！')
+Comment.create!(user_id: '2',
+                blog_id: '3',
+                content: 'そうでしたか～。ご連絡ありがとうございます！')
+Comment.create!(user_id: '2',
+                blog_id: '4',
+                content: 'ご投稿ありがとうございます！')
+Comment.create!(user_id: '1',
+                blog_id: '1',
+                content: 'ご投稿ありがとうございます！')
+Comment.create!(user_id: '2',
+                blog_id: '5',
+                content: 'ご投稿ありがとうございます！')
+Comment.create!(user_id: '2',
+                blog_id: '6',
+                content: 'ご投稿ありがとうございます！')
+Comment.create!(user_id: '1',
+                blog_id: '7',
+                content: 'ご投稿ありがとうございます！')
+Comment.create!(user_id: '1',
+                blog_id: '8',
+                content: 'ご投稿ありがとうございます！')
 
 
 

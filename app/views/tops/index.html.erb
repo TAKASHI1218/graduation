@@ -1,104 +1,36 @@
 <div class="toppbody">
-<div class="f-container">
-
-<!-- <h1>鳥勇<h1>   -->
-
-<br>
-<div class="toppp">
-<p1 class="topp1">
-  鳥勇
-</p1><br>
-<p2 class="topp1_5">
-  江戸川区瑞江の外れにひっそりと店を構える炭火焼き鳥店
-</p2>
-<br>
-<br>
-<p2 class="topp2">
-当店で召し上がって頂きたいのは、<br>
-40種類以上の希少部位の中から日替わりで提供する部位を備長炭で丁寧に焼き上げた焼き鳥です。<br>
-鳥を1からさばき、質の良い部位を鮮度の良い状態で丁寧に仕込み、提供しております。<br>
-極上の塩、秘伝のタレで是非お召し上がりください。<br>
-また、焼き鳥に合う店主が厳選した日本酒を多数取り揃えておりますので『焼き鳥×日本酒』をご堪能くださいませ。</p2>
-<br>
-<br>
-
-
-<!-- <p1>お店のインスタグラムはこちらから</p1>
- <button type="button" class="btn btn-info rounded-pill">
-  <%= link_to "Instagram", "https://www.instagram.com/toriyuu_yakitori", :target=>["_blank"] %></button>
-<br>
-<br>
-<p1>当店では団体様用のお座敷席もご用意しております。</p1>
-
-
-<button type="button" class="btn btn-light" data-toggle="modal" data-target="#exampleModalCenter">
-  <p1>お座敷席</p1>
-</button>
-<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-<div class="modal-dialog modal-dialog-centered modal-xl" role="document">
-  <div class="modal-content">
-    <div class="modal-header">
-      <p5 class="modal-title" id="exampleModalCenterTitle">お座敷席</p5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="閉じる">
-          <span aria-hidden="true">&times;</span>
-        </button>
-    </div>
-      <div class="modal-body">
-        <div class="modalpicture">
-          <p><%= image_tag "14372.jpg",:width => '100%', :height => '100%'  %></p>
-        </div>
+  <div class="f-container"><br>
+    <div class="toppp">
+      <p1 class="topp1">
+        鳥勇
+      </p1><br>
+      <p2 class="topp1_5">
+        江戸川区瑞江の外れにひっそりと店を構える炭火焼き鳥店
+      </p2><br>
+      <p2 class="topp2">
+        当店で召し上がって頂きたいのは、<br>
+        40種類以上の希少部位の中から日替わりで提供する部位を備長炭で丁寧に焼き上げた焼き鳥です。<br>
+        鳥を1からさばき、質の良い部位を鮮度の良い状態で丁寧に仕込み、提供しております。<br>
+        極上の塩、秘伝のタレで是非お召し上がりください。<br>
+        また、焼き鳥に合う店主が厳選した日本酒を多数取り揃えておりますので『焼き鳥×日本酒』をご堪能くださいませ。</p2><br>
+      <p2 class="topp2">以下より新規登録、ログインしToriyuu - notice boardに投稿してください！</p2>
+      <div class="loginuser">
+        <% if user_signed_in? %>
+          <button class="loginbutton">
+            <%= link_to "ログアウト", destroy_user_session_path, method: :delete %></button><br>
+            <p1 class="toppadmin"><%= current_user.name %>さんがログインしています。</p1><br>
+        <% else %>
+          <button class="loginbutton">
+            <%= link_to "ログイン", new_user_session_path %></button>
+          <button class="loginbutton">
+            <%= link_to "新規登録", new_user_registration_path %></button>
+        <% end %>
+        <% if current_user == nil %>
+        <% elsif current_user.admin == false %>
+        <% elsif current_user.admin == true%>
+        <p1 class="toppadmin">管理者としてログインしています。下部より会員一覧とAdminページのリンクがございます。</p1><br>
+        <% end %>
       </div>
+    </div>
   </div>
-</div>
-</div>
-
-<br>
-<br> -->
-
-<!-- <p1>以下より各リンクをご覧ください。</p1> -->
-
-<!-- <div class="top-sub">
-        <button type="button" class="btn btn-light rounded-pill">
-            <%= link_to "トップページ", tops_path %></button>
-       <button type="button" class="btn btn-light rounded-pill">
-            <%= link_to "アクセス", maps_path %></button>
-        <br>
-          <button type="button" class="btn btn-warning rounded-pill">
-            <%= link_to "焼き鳥", foods_path %></button>
-          <button type="button" class="btn btn-warning rounded-pill">
-            <%= link_to "一品料理", side_menus_path %></button>
-          <button type="button" class="btn btn-warning rounded-pill">
-            <%= link_to "お飲み物", drinks_path %></button>
-          <button type="button" class="btn btn-warning rounded-pill">
-            <%= link_to "日本酒", sakes_path %></button>
-        <br>
-        </div> -->
-        <br>
-  <p2 class="topp2">以下より新規登録、ログインしToriyuu - notice boardに投稿してください！</p2>
-
- <div class="loginuser">
-   <% if user_signed_in? %>
-   <button class="loginbutton" >
-     <%= link_to "ログアウト", destroy_user_session_path, method: :delete %></button>
-   <% else %>
-   <button class="loginbutton" >
-    <%= link_to "ログイン", new_user_session_path %></button>
-   <button class="loginbutton">
-    <%= link_to "新規登録", new_user_registration_path  %></button>
-   <% end %>
-  </div>
-  </div>
-
-</div>
-
-
-
-
-
-
-
-
-
-
-</div>
 </div>

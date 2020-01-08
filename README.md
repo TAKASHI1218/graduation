@@ -1,4 +1,13 @@
 # README
+
+URL
+
+https://www.toriyuu.site/
+
+
+
+
+
 # 飲食店ホームページ（焼き鳥屋）
 ## 概要
 当該焼き鳥店のホームページを作成を一層の集客を目指す。
@@ -6,7 +15,7 @@
 Railsで作成されたホームページにより管理者であればだれでも簡単にメニューの変更や登録をできるようにする（写真の投稿も可能）
 
 
-## コンセプト
+## コンセプト1
 
 お店の場所やメニューを記載し閲覧者にお店のことを知ってもらう。
 
@@ -22,7 +31,23 @@ Railsで作成されたホームページにより管理者であればだれで
 
 （seedの写真はあったりなかったりしているがこれはオーナーからまだ写真を受け取っていないためです。上記の概要通り後からでも写真投稿はできます。）
 
-従業員の業務連絡表がついている。
+## コンセプト２
+
+Toriyuu notice board という掲示板を通してお店の情報を共有する。
+
+トップページから新規登録しログインすればユーザーになることができる。
+
+ユーザーになるとToriyu-noticeboard という掲示板に投稿、投稿に対してのコメントをすることができる。
+（ユーザーではなくても閲覧はできる。）
+
+## コンセプト３
+
+adminユーザーのみメニューの編集ができる。（お店の管理者様用）
+
+また不適切な投稿の削除もできる。
+
+このadminユーザーはseeddataの段階で設定する。
+
 
 ## バージョン情報
 Ruby 2.6.3
@@ -31,18 +56,16 @@ Rails 5.2.3
 - 投稿機能
   - ユーザー登録機能
     - メールアドレス、名前、パスワードは必須
-    - ユーザー一覧（従業員一覧）をみることができる
   - ログイン機能
     - メールアドレス、パスワードでログインできる
-  - 業務連絡機能
-    - 業務連絡の一覧を表示できる
+  - 掲示板機能
+    - 掲示板の一覧を表示できる
     - 画像、テキストが投稿できる
-    - 本人のみコンテンツの削除、編集ができる
-    - adminユーザーのみ全ての投稿を編集可能。他adminpageにて作業ができる。
+    - 本人またはadminのみコンテンツの削除、編集ができる
 
 
 - メニュー(food, side_menu, drink, sake)アップデート機能
- - どのユーザー（従業員でも）メニューを新規登録、アップデートできる。
+ - adminユーザーのみメニューを新規登録、アップデートできる。
  - グランドメニューはseedで設定
 
 # カタログ設計
@@ -58,9 +81,10 @@ https://docs.google.com/spreadsheets/d/18qd-0vUnFeM5WgNzt2b_GqC_XZb-4lGKGsk33CJS
 https://docs.google.com/spreadsheets/d/18qd-0vUnFeM5WgNzt2b_GqC_XZb-4lGKGsk33CJS8zM/edit?userstoinvite=gum5588%40gmail.com&ts=5ddb6148&actionButton=1#gid=76011229
 # 画面ワイヤーフレーム
 https://docs.google.com/spreadsheets/d/18qd-0vUnFeM5WgNzt2b_GqC_XZb-4lGKGsk33CJS8zM/edit?userstoinvite=gum5588%40gmail.com&ts=5ddb6148&actionButton=1#gid=1170703884
+
+
 # 使用予定Gem
-- ログイン機能
- - devise
+
 
 
 - 画像編集機能
@@ -70,6 +94,7 @@ https://docs.google.com/spreadsheets/d/18qd-0vUnFeM5WgNzt2b_GqC_XZb-4lGKGsk33CJS
   - dotenv-rails
   - fog-aws
 
+
 - ログイン機能
   - devise
   - rails_admin
@@ -78,15 +103,18 @@ https://docs.google.com/spreadsheets/d/18qd-0vUnFeM5WgNzt2b_GqC_XZb-4lGKGsk33CJS
   - omniauth-google-oauth2
   - omniauth-facebook
 
+
 - CSSフレームワーク
   - bootstrap4
   - jquery-rails
   - kaminari
 
+
 - デバッグ
   - better_errors
   - binding_of_caller
   - pry-rails
+
 
 - テスト
   - rspec-rails
@@ -95,12 +123,11 @@ https://docs.google.com/spreadsheets/d/18qd-0vUnFeM5WgNzt2b_GqC_XZb-4lGKGsk33CJS
   - capybara
   - selenium-webdriver
 
+
 - 辞書機能
   - i18n
 
 
-
-  <!-- # *AWSにてアップロード
 - AWS用Gem
   - fog aws
   - dotenv-rails
@@ -110,4 +137,4 @@ https://docs.google.com/spreadsheets/d/18qd-0vUnFeM5WgNzt2b_GqC_XZb-4lGKGsk33CJS
   - capistrano-bundler
   - capistrano-rails
   - capistrano-rbenv
-  - capistrano3-unicorn -->
+  - capistrano3-unicorn

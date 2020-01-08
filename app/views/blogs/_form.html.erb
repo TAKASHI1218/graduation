@@ -3,51 +3,34 @@
     <div id="error_explanation">
       <h2><%= @blog.errors.count %>件のエラーがあります。</h2>
       <ul class="errormessage">
-
       <% @blog.errors.full_messages.each do |msg| %>
         <li ><%=msg %></li>
       <% end %>
       </ul>
     </div>
   <% end %>
-
   <div class="blog_title">
     <%= form.label :title %><br>
-    <%= form.text_area :title %>
+    <%= form.text_area :title %><br>
   </div>
-  <br>
   <div class="blog_content">
     <%= form.label :content %><br>
-    <%= form.text_area :content %>
+    <%= form.text_area :content %><br>
   </div>
-  <br>
   <div class="blog_visit_date">
     <%= form.label :visit_date %><br>
-    <%= form.date_select :visit_date,  include_blank: true %>
+    <%= form.date_select :visit_date,  include_blank: true %><br>
   </div>
-  <br>
   <div class="blog_status">
     <%= form.label :status %><br>
-    <%= form.select :status, Blog.statuses.keys.to_a, {} %>
-
+    <%= form.select :status, Blog.statuses.keys.to_a, {} %><br>
   </div>
-  <br>
-
   <div class="blog_picture">
-    <%= form.label :picture %><br>
+    <%= form.label :picture %>
     <% if @blog.picture.url %>
       <%= image_tag @blog.picture.url ,:width => '400', :height => '400' %>
-    <% end %>
-
-    <%= form.file_field :picture %>
-
-
-
+    <% end %><br>
+    <%= form.file_field :picture %><br>
   </div>
-   <br>
-
-     <%= form.submit '投稿', class: 'submitbutton' %>
-
+    <%= form.submit '投稿', class: 'submitbutton' %>
 <% end %>
-<br>
-<br>
