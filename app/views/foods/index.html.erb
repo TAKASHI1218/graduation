@@ -216,7 +216,7 @@
             </thead>
             <tbody>
               <% @foods.each do |food| %>
-                <% if food.price == 250 %>
+                <% if food.price!=150 && food.price!=200 && food.price!=250 %>
               <tr>
                 <td><%= food.name %></td>
                 <td>
