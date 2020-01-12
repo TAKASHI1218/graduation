@@ -146,6 +146,7 @@ footer {
   font-family: serif;
   text-align: center;
   font-family: 'Noto Sans JP', sans-serif;
+  width: 100%;
 }
 
 .toppp {
@@ -529,6 +530,7 @@ body {
   min-height: 100vh;
   font-family: 'Noto Sans JP', sans-serif;
   text-align: center;
+  width: 100%;
 }
 
 .blogtop {
@@ -763,6 +765,10 @@ body {
   scroll-snap-type: y;
   min-height: 100vh;
   font-family: 'Noto Sans JP', sans-serif;
+}
+
+.preview{
+  padding-bottom: 10px;
 }
 
 .blogeachtitle {
