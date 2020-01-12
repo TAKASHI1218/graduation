@@ -17,24 +17,25 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
   <header>
-    <div class="header-logo-menu">
-      <div id="nav-drawer">
-        <input id="nav-input" type="checkbox" class="nav-unshown">
-        <label id="nav-open" for="nav-input">
-          <span></span></label>
-        <label class="nav-unshown" id="nav-close" for="nav-input"></label>
-        <div id="nav-content">
-          <%= link_to "トップページ", tops_path %><br>
-          <%= link_to "アクセス", maps_path %><br>
-          <%= link_to "お店のInstagram", "https://www.instagram.com/toriyuu_yakitori", :target=>["_blank"] %><br>
-          <%= link_to "Toriyuu - notice board", blogs_path %><br>
-          <%= link_to "焼き鳥", foods_path %><br>
-          <%= link_to "一品料理", side_menus_path %><br>
-          <%= link_to "お飲み物", drinks_path %><br>
-          <%= link_to "日本酒", sakes_path %><br>
-        </div>
-      </div>
+    <nav class="global-nav">
+    <ul class="global-nav__list">
+      <li class="global-nav__item"><%= link_to "トップページ", tops_path %></li>
+      <li class="global-nav__item"><%= link_to "アクセス", maps_path %></li>
+      <li class="global-nav__item"><%= link_to "お店のInstagram", "https://www.instagram.com/toriyuu_yakitori", :target=>["_blank"] %></li>
+      <li class="global-nav__item"><%= link_to "Toriyuu - notice board", blogs_path %></li>
+      <li class="global-nav__item"><%= link_to "焼き鳥", foods_path %></li>
+      <li class="global-nav__item"><%= link_to "一品料理", side_menus_path %></li>
+      <li class="global-nav__item"><%= link_to "焼き鳥", foods_path %></li>
+      <li class="global-nav__item"><%= link_to "お飲み物", drinks_path %></li>
+      <li class="global-nav__item"><%= link_to "日本酒", sakes_path %></li>
+    </ul>
+    </nav>
+    <div class="hamburger" id="js-hamburger">
+    <span class="hamburger__line hamburger__line--1"></span>
+    <span class="hamburger__line hamburger__line--2"></span>
+    <span class="hamburger__line hamburger__line--3"></span>
     </div>
+    <div class="black-bg" id="js-black-bg"></div>
     <p1 class="logo-erea"><%= link_to "T o r i y u u", tops_path %></p1>
   </header>
   <body>
@@ -48,7 +49,25 @@
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
-  </body>
+    <script>
+      function toggleNav() {
+      var body = document.body;
+      var hamburger = document.getElementById('js-hamburger');
+      var blackBg = document.getElementById('js-black-bg');
+      
+      hamburger.addEventListener('click', function() {
+        body.classList.toggle('nav-open');
+      });
+      blackBg.addEventListener('click', function() {
+        body.classList.remove('nav-open');
+      });
+      }
+      toggleNav();
+    </script>
+  
+
+    
+</body>
   <footer >
     <p1>住所：〒132-0013 東京都江戸川区江戸川２丁目６−２<p1><br>
     <p1>営業時間：火曜日～日曜 18時から24時(定休日：月曜)<p1>
