@@ -4,7 +4,11 @@ URL
 
 https://www.toriyuu.site/
 
+管理者user（ポートフォリオ用）
 
+メールアドレス: 6134@yahoo.co.jp
+
+password: 61346134
 
 
 

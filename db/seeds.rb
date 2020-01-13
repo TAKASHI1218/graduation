@@ -55,55 +55,121 @@ User.create!(name:  "毎日ビール",
             password_confirmation: "61346134",
             admin: false)
 
-
-Blog.create!(user_id: '8',
+            Blog.create!(user_id: '8',
+            created_at: '2019-04-26',
             title: '店長不在',
             content: '店長さんがお休みでお話したかったのに残念です。。。',
             picture: '',
             visit_date: '2019-04-26',
             status:'少し不満。。')
 Blog.create!(user_id: '3',
-             title: 'ちょうちん最高でした。',
-             content: 'ちょうちんがとてもおいしかったです！',
-             picture: File.open("#{Rails.root}/db/seedpictures/f-chochin.jpg"),
-             visit_date: '2019-03-26',
-             status:'とても満足です！')
+            created_at: '2019-03-26',
+            title: 'ちょうちん最高でした。',
+            content: 'ちょうちんがとてもおいしかったです！',
+            picture: '',
+            visit_date: '2019-03-26',
+            status:'満足です！')
 Blog.create!(user_id: '6',
+            created_at: '2019-05-26',
             title: '白肝おいしい',
             content: '他では味わえないおいしさでした。',
             picture: File.open("#{Rails.root}/db/seedpictures/f-shirokimo.jpg"),
             visit_date: '2019-05-26',
             status:'満足です！')
 Blog.create!(user_id: '7',
-             title: '焼き鳥とあった日本酒',
-             content: '店長のおすすめで十四代と焼き鳥を食しました。最高でした。',
-             picture: File.open("#{Rails.root}/db/seedpictures/sake-14dai.jpg"),
-             visit_date: '2019-01-17',
-             status:'とても満足です！')
+            created_at: '2019-01-17',
+            title: '焼き鳥とあった日本酒',
+            content: '店長のおすすめで十四代と焼き鳥を食しました。最高でした。',
+            picture: File.open("#{Rails.root}/db/seedpictures/sake-14dai.jpg"),
+            visit_date: '2019-01-17',
+            status:'とても満足です！')
 Blog.create!(user_id: '5',
+            created_at: '2019-08-26',
             title: '焼き鳥フルコース',
             content: 'ボリュームもあり味も最高でした。また来たいです。',
             picture: '',
             visit_date: '2019-08-26',
             status:'普通')
 Blog.create!(user_id: '8',
-             title: 'ひさびさの日本酒',
-             content: 'いつもはビールしか飲みませんが今日は日本酒をひさびさに飲みエンジョイしました',
-             picture: File.open("#{Rails.root}/db/seedpictures/sake-3.jpg"),
-             visit_date: '2018-12-03',
-             status:'とても満足です！')
+            created_at: '2018-12-03',
+            title: 'ひさびさの日本酒',
+            content: 'いつもはビールしか飲みませんが今日は日本酒をひさびさに飲みエンジョイしました',
+            picture: File.open("#{Rails.root}/db/seedpictures/sake-3.jpg"),
+            visit_date: '2018-12-03',
+            status:'とても満足です！')
 Blog.create!(user_id: '3',
+            created_at: '2019-05-26',
             title: 'RE:ちょうちん最高でした。',
             content: 'ちょうちんがとてもおいしかったです！また頼んでしまいました。',
             picture: File.open("#{Rails.root}/db/seedpictures/f-chochin.jpg"),
             visit_date: '2019-05-26',
             status:'とても満足です！')
 Blog.create!(user_id: '7',
-             title: '再来店',
-             content: '再来店しました！やっぱりおいしいです！',
-             picture: '',
-             visit_date: '2019-02-3',
-             status:'満足です！')
+            created_at: '2019-02-3',
+            title: '再来店',
+            content: '再来店しました！やっぱりおいしいです！',
+            picture: '',
+            visit_date: '2019-02-3',
+            status:'満足です！')
+Blog.create!(user_id: '5',
+            created_at: '2019-08-26',
+            title: '焼き鳥フルコース',
+            content: 'ボリュームもあり味も最高でした。また来たいです。',
+            picture: '',
+            visit_date: '2019-08-26',
+            status:'普通')
+Blog.create!(user_id: '8',
+            created_at: '2018-12-03',
+            title: 'ひさびさの日本酒',
+            content: 'いつもはビールしか飲みませんが今日は日本酒をひさびさに飲みエンジョイしました',
+            picture: File.open("#{Rails.root}/db/seedpictures/sake-3.jpg"),
+            visit_date: '2018-12-03',
+            status:'とても満足です！')
+Blog.create!(user_id: '3',
+            created_at: '2019-05-26',
+            title: 'RE:ちょうちん最高でした。',
+            content: 'ちょうちんがとてもおいしかったです！また頼んでしまいました。',
+            picture: File.open("#{Rails.root}/db/seedpictures/f-chochin.jpg"),
+            visit_date: '2019-05-26',
+            status:'とても満足です！')
+Blog.create!(user_id: '7',
+            created_at: '2019-02-3',
+            title: '再来店',
+            content: '再来店しました！やっぱりおいしいです！',
+            picture: '',
+            visit_date: '2019-02-3',
+            status:'満足です！')
+
+
+
+Blog.create!(user_id: '5',
+            created_at: '2019-09-13',
+            title: '焼き鳥半コース',
+            content: '意外とボリュームありました。また来たいです。',
+            picture: '',
+            visit_date: '',
+            status:'普通')
+Blog.create!(user_id: '8',
+            created_at: '2019-02-03',
+            title: 'ひさびさのハイボール',
+            content: 'いつもはビールしか飲みませんが今日はハイボールをひさびさに飲みエンジョイしました',
+            picture: '',
+            visit_date: '',
+            status:'普通')
+Blog.create!(user_id: '3',
+            created_at: '2019-09-26',
+            title: 'RE:RE:ちょうちん最高でした。',
+            content: 'ちょうちんがとてもおいしかったです！またまた頼んでしまいました。',
+            picture: File.open("#{Rails.root}/db/seedpictures/f-chochin.jpg"),
+            visit_date: '',
+            status:'とても満足です！')
+Blog.create!(user_id: '7',
+            created_at: '2019-04-3',
+            title: '常連',
+            content: '常連になりました！',
+            picture: '',
+            visit_date: '',
+            status:'満足です！')
 
 
 
