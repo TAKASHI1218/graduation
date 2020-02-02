@@ -2,6 +2,7 @@
 <html>
   <head>
     <%= analytics_init if Rails.env.production? %>
+    <meta name="viewport" content="width=360,initial-scale=1">
     <meta name="google-site-verification" content="kk6tFO9EXVc53Elkt6-Tupx5PQU5fgcDNb1OFQP2h2A"/>
     <link href="https://fonts.googleapis.com/css?family=Permanent+Marker&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Sawarabi+Mincho&display=swap" rel="stylesheet">
@@ -11,7 +12,7 @@
     <title>toriyuu</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <%# <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"> %>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
